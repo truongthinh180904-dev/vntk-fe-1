@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /member/
+Disallow: /user/
+Disallow: /
+
+Sitemap: https://vietnam-tickets.com/sitemap.xml

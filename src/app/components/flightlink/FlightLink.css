@@ -1,0 +1,43 @@
+   .loading-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: inherit;
+    }
+
+    .bouncing-loader {
+    display: flex;
+    justify-content: center;
+    }
+
+    .bouncing-loader > div {
+    width: 8px;
+    height: 8px;
+    margin: 3px 3px;
+    background: #2476e2; /* Màu xanh lục EVA Air */
+    border-radius: 50%;
+    animation: bouncing-loader 0.6s infinite alternate;
+    }
+
+    .bouncing-loader > div:nth-child(2) {
+    animation-delay: 0.2s;
+    }
+
+    .bouncing-loader > div:nth-child(3) {
+    animation-delay: 0.4s;
+    }
+
+    @keyframes bouncing-loader {
+    from {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    to {
+    opacity: 0.1;
+    transform: translateY(-10px);
+    }
+    }

@@ -1,0 +1,51 @@
+
+/* Tabs dạng button */
+.customTabs {
+  border-bottom: none;
+}
+
+.tabButton {
+  border: none;
+  background-color: #f1f3f9;
+  border-radius: 8px;
+  color: #333;
+  font-weight: 500;
+  padding: 10px 18px;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.tabButton:hover {
+  background-color: #e8ebf4;
+  color: #0d6efd;
+}
+
+/* Active tab */
+.activeTab {
+  background-color: #0d6efd !important;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(13, 110, 253, 0.25);
+}
+
+/* Hộp nội dung */
+.contentBox {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Link vé máy bay */
+.destinationLink {
+  color: #1b3a75;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.destinationLink:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}

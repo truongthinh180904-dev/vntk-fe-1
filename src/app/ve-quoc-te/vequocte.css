@@ -1,0 +1,628 @@
+/* Banner Sales Section */
+.banner-sales-container {
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+.banner-main {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.banner-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Slide Container */
+.slide-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Navigation Buttons */
+.slide-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.9);
+  border: none;
+  width: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slide-nav-btn:hover {
+  background-color: rgba(255,255,255,1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.slide-nav-btn.prev {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.slide-nav-btn.prev:hover {
+  transform: translateY(-50%) translateX(2px);
+}
+
+.slide-nav-btn.next {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.slide-nav-btn.next:hover {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.slide-nav-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Indicators */
+.slide-indicators {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.indicator {
+  border: none;
+  border-radius: 12px;
+  height: 8px;
+  background-color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background-color: rgba(255,255,255,0.9);
+  width: 24px;
+}
+
+.indicator:not(.active) {
+  width: 8px;
+}
+
+.indicator:hover {
+  background-color: rgba(255,255,255,0.8);
+  transform: scale(1.1);
+}
+
+
+.btn-filter {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border: none;
+  font-weight: 500;
+}
+
+.btn-filter.active {
+  background-color: #0d6efd !important;
+  color: white !important;
+}
+
+
+/* Nút dropdown */
+.btn-filter {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.btn-filter:hover,
+.btn-filter.active {
+  background: #187ed0;
+  color: white;
+}
+
+/* Menu custom */
+.dropdown-menu-custom {
+  position: absolute;
+  margin-top: 5px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  list-style: none;
+  padding: 4px 0;
+  min-width: 150px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.dropdown-item-custom {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.dropdown-item-custom:hover {
+  background: #f1f5f9;
+  color: #187ed0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Căn chỉnh bố cục dropdown */
+.dropdown-custom {
+  position: relative;
+  display: inline-block;
+}
+
+/* CSS cho city buttons */
+.city-buttons-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 8px;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Ẩn scrollbar trên Firefox */
+}
+
+.city-buttons-container::-webkit-scrollbar {
+  display: none; /* Ẩn scrollbar trên Chrome/Safari */
+}
+
+.city-button {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  background: white;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.city-button:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.city-button--active {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-color: #0ea5e9;
+  color: #0369a1;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(14, 165, 233, 0.15);
+}
+
+.city-button--active:hover {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  border-color: #0284c7;
+  color: #075985;
+  box-shadow: 0 4px 8px rgba(14, 165, 233, 0.2);
+}
+
+/* Hiệu ứng click */
+.city-button:active {
+  transform: scale(0.98);
+}
+
+.travel-card {
+  width: 220px;
+  height: 130px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.travel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.transition-slide {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  transition: transform 0.6s ease;
+}
+
+
+/*TravelSuggestion card componets nè*/
+.travel-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.travel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.travel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  transition: all 0.4s ease;
+}
+
+.travel-card:hover .travel-overlay {
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+}
+
+.smooth-slide {
+  display: flex;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+a.text-primary:hover {
+  color: #0d6efd !important;
+  text-decoration: underline;
+}
+
+.banner-margin-top {
+  margin-top: 42px;
+}
+
+.height-ve-quoc-te
+{
+   height: 650px;
+}
+.category-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch; /* cuộn mượt trên iOS */
+  scrollbar-width: none; /* ẩn thanh cuộn trên Firefox */
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none; /* ẩn thanh cuộn trên Chrome/Safari */
+}
+
+@media (max-width: 768px) {
+   .banner-margin-top {
+        margin-top: 450px;
+      }   
+    .height-ve-quoc-te{
+      height: 800px;
+    }
+  }
+
+  
+/* CSS cho country buttons */
+.country-buttons-container {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 8px;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.country-buttons-container::-webkit-scrollbar {
+  display: none;
+}
+
+.country-button {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  background: white;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.country-button:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.country-button--active {
+  background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+  border-color: #8b5cf6;
+  color: #6d28d9;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.15);
+}
+
+.country-button--active:hover {
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+  border-color: #7c3aed;
+  color: #5b21b6;
+  box-shadow: 0 4px 8px rgba(139, 92, 246, 0.2);
+}
+
+.country-button:active {
+  transform: scale(0.98);
+}
+
+
+.news-side-title {
+  color: #111;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.news-side-item:hover .news-side-title {
+  color: #0d6efd;
+}
+
+/* Heading */
+.news-all h1 {
+  border-left: 4px solid #0d6efd;
+  padding-left: 10px;
+  font-size: 1.5rem;
+}
+
+/* Hiệu ứng hover mượt */
+.news-side-item {
+  cursor: pointer;
+}
+
+.news-all {
+  max-width: 1200px;
+}
+
+
+/* Bên phải */
+.news-side-img {
+  width: 170px;
+  height: 120px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.news-side-item:hover .news-side-img {
+  transform: scale(1.05);
+}
+
+.news-side-title {
+  color: #111;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.news-side-item:hover .news-side-title {
+  color: #0d6efd;
+}
+
+
+
+/* Hiệu ứng hover mượt */
+.news-side-item {
+  cursor: pointer;
+}
+
+
+
+.travel-card {
+  width: 280px;
+  height: 130px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.travel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.transition-slide {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  transition: transform 0.6s ease;
+}
+
+
+/*TravelSuggestion card componets nè*/
+.travel-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.travel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.travel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  transition: all 0.4s ease;
+}
+
+.travel-card:hover .travel-overlay {
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+}
+
+.smooth-slide {
+  display: flex;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+a.text-primary:hover {
+  color: #0d6efd !important;
+  text-decoration: underline;
+}
+
+/* Banner Sales Section */
+.banner-sales-container {
+  margin-bottom: 40px;
+}
+
+.banner-main {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.banner-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Slide Container */
+.slide-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Navigation Buttons */
+.slide-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.9);
+  border: none;
+  width: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slide-nav-btn:hover {
+  background-color: rgba(255,255,255,1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+@media (max-width: 768px) {
+   .banner-margin-top {
+        margin-top: 500px;
+      }   
+    .height-ve-quoc-te{
+      height: 800px;
+    }
+    .margin-top-mobile{
+       margin-top: 400px !important;
+    }
+  }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap-index.xsl"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-page.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-category-domestic.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+   <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-category-international.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-category-article.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-article.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+    <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-domestic-flights.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-international-flights.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+   <!-- <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-international-flights-1.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap> -->
+
+  <sitemap>
+    <loc>https://vietnam-tickets.com/sitemap-brand.xml</loc>
+    <lastmod>2025-04-01T00:00:00+07:00</lastmod>
+  </sitemap>
+
+
+</sitemapindex>

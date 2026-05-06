@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tìm kiếm chuyến bay VietNam Tickets</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom style for SweetAlert */
+        .swal2-popup {
+            border-radius: 12px !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .swal2-title {
+            color: #2c3e50;
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .swal2-confirm {
+            background-color: #4CAF50 !important;
+            border-radius: 8px !important;
+            padding: 10px 24px !important;
+            font-size: 16px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .swal2-confirm:hover {
+            background-color: #45a049 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .swal2-timer-progress-bar {
+            background-color: rgba(76, 175, 80, 0.6) !important;
+        }
+                /* Đảm bảo các ô nhập liệu và nút bấm có font size đủ lớn để iOS không zoom */
+        #dtc-plugin input, 
+        #dtc-plugin select, 
+        #dtc-plugin textarea,
+        #dtc-plugin button {
+            font-size: 16px !important;
+        }
+
+    @media (max-width: 567px) {
+        #dtcListAirport {
+            width: 90vw !important;
+            height: 100vh;
+        }
+    }
+            /* Fix lỗi cho riêng iOS để không bị zoom khi focus */
+        @media screen and (max-width: 768px) {
+            input:focus, select:focus, textarea:focus {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast thông báo -->
+    <script>
+        function showToast(message) {
+            Swal.fire({
+                title: 'Thành công!',
+                text: message,
+                icon: 'success',
+                width: 500,
+                position: 'center',
+                showConfirmButton: true,
+                confirmButtonText: 'OK',
+                timer: 3000,
+                timerProgressBar: true,
+                background: '#ffffff',
+                backdrop: `
+                    rgba(0,0,0,0.08)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            }).then((result) => {
+                // Xử lý sau khi đóng popup
+                if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+                    // Điều hướng trang chính (kể cả khi nhúng trong iframe)
+                    const targetUrl = "/"; // URL bạn muốn chuyển hướng đến
+                    
+                    if (window.top !== window.self) {
+                        // Nếu đang trong iframe
+                        window.top.postMessage({
+                            type: 'REDIRECT',
+                            url: targetUrl
+                        }, '*');
+                        
+                        // Fallback nếu postMessage không hoạt động
+                        setTimeout(() => {
+                            window.top.location.href = targetUrl;
+                        }, 100);
+                    } else {
+                        // Nếu là trang chính
+                        window.location.href = targetUrl;
+                    }
+                }
+            });
+        }
+        
+
+    </script>
+
+    <!-- Plugin đặt vé -->
+    <div id="dtc-plugin" data-flight-url="/tim-kiem-chuyen-bay" data-key="DTC10978"></div>
+    <script src="/plugin.js" asp-append-version="true"></script>
+    
+
+</body>
+</html>

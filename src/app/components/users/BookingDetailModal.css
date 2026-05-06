@@ -1,0 +1,86 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding-top: 80px;
+}
+
+.modal-dialog-custom {
+  background: white;
+  border-radius: 10px;
+  max-width: 850px;
+  width: 95%;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content-custom {
+  padding: 25px;
+}
+
+.modal-logo {
+  height: 60px;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #3f8acd;
+  margin-bottom: 15px;
+}
+
+.customer-info {
+  background: #f8f9fa;
+  border-left: 4px solid #3f8acd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.flight-section {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.flight-title {
+  background: #3f8acd;
+  color: white;
+  padding: 8px 12px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.sub-section {
+  border-top: 1px solid #dee2e6;
+  padding: 10px 15px;
+}
+
+.sub-section h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.summary-section {
+  margin-top: 20px;
+}
+
+.summary-section h4 {
+  background: #3f8acd;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,128 @@
+      .contact-floating {
+        position: fixed;
+        bottom: 85px;
+        right: 10px;
+        z-index: 9999;
+      }
+
+      .contact-btn {
+        background: linear-gradient(135deg, #3279ff, #4799ff);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .contact-btn span {
+        font-size: 12px;
+        margin-top: 2px;
+      }
+
+        .tooltip-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip {
+        position: absolute;
+        bottom: 60px;
+        right: 50%;
+        transform: translateX(50%);
+        background: linear-gradient(135deg,#3279ff,#4799ff);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      .tooltip-wrapper:hover .tooltip {
+        opacity: 1;
+        transform: translateX(50%) translateY(-5px);
+      }
+
+      .contact-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      .close-icon {
+        font-size: 30px;
+        line-height: 0;
+        font-weight: bold;
+      }
+
+      .contact-menu {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        width: 220px;
+      }
+
+      .contact-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .contact-item:hover {
+        background: rgba(50, 121, 255, 0.1);
+        color: #3279ff;
+      }
+
+      /* Icon bo tròn có màu */
+      .icon-circle {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #eee;
+      }
+
+      .email-bg {
+        background: linear-gradient(135deg, #3279ff, #9747ff);
+      }
+
+      .zalo-bg {
+        background: linear-gradient(135deg, #00a8ff, #3279ff);
+      }
+
+      .phone-bg {
+        background: linear-gradient(135deg, #ff5f6d, #ffc371);
+      }
+
+      /* .icon-circle img {
+        filter: brightness(100%) invert(1);
+      } */

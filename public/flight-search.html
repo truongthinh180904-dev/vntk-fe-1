@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Tìm kiếm chuyến bay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/amlich.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/filter.css">
+  <link rel="stylesheet" href="./css/flight.css">
+  <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+ 
+  
+  <div id="dtc-plugin" data-flight-url="/tim-kiem-chuyen-bay" data-key="DTC10978"></div>
+  <script src="/js/Search.js" asp-append-version="true"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+<script>
+  
+function showToast(message) {
+    Swal.fire({
+        icon: 'success',
+        title: message,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didClose: () => {
+            // sau khi toast tắt thì chuyển hướng
+            window.location.href = "/";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+.loaderContainer {
+  width: 400px;
+  height: 160px;
+  /* background: white;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 5px #00000057); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Typing text effect */
+/* .typingText {
+  font-size: 26px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #304FFE;
+  width: 0;
+  animation: typing 4s steps(20, end) forwards, blink 0.75s step-end infinite;
+  color: #304FFE;
+} */
+
+.loadingWrapper {
+  margin-top: 15px;
+  height: 10px;
+  width: 90%;
+  background: #CFD8DC;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader {
+  background: linear-gradient(90deg, #304FFE, #2196F3, #304FFE);
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loadBar 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.plane {
+  position: absolute;
+  bottom: 85px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  animation: planeFly 5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  filter: drop-shadow(0 2px 4px rgba(48, 79, 254, 0.3));
+  z-index: 2;
+}
+
+.plane svg {
+  width: 100%;
+  height: 100%;
+  fill: #304FFE;
+  filter: drop-shadow(0 0 8px rgba(33, 150, 243, 0.6));
+}
+
+/* Trail effect for plane */
+.plane::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #304FFE, transparent);
+  transform: translateY(-50%);
+  opacity: 0.7;
+  animation: trailPulse 1s ease-in-out infinite;
+}
+
+.plane::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, #2196F3, transparent);
+  transform: translateY(-50%);
+  opacity: 0.5;
+  animation: trailPulse 1s ease-in-out infinite 0.2s;
+}
+
+/* Enhanced Animations */
+@keyframes planeFly {
+  0% { 
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(90px) translateY(-3px) rotate(2deg);
+  }
+  50% {
+    transform: translateX(180px) translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateX(270px) translateY(-2px) rotate(-1deg);
+  }
+  100% { 
+    transform: translateX(360px) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes loadBar {
+  0% { 
+    transform: scaleX(0);
+    border-radius: 5px 0 0 5px;
+  }
+  50% {
+    border-radius: 5px;
+  }
+  100% { 
+    transform: scaleX(1);
+    border-radius: 0 5px 5px 0;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes trailPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* Add floating clouds for better visual context */
+.loadingWrapper::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  width: 20px;
+  height: 10px;
+  background: #B0BEC5;
+  border-radius: 10px;
+  opacity: 0.6;
+  animation: cloudFloat 8s ease-in-out infinite;
+}
+
+.loadingWrapper::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 200px;
+  width: 15px;
+  height: 8px;
+  background: #B0BEC5;
+  border-radius: 8px;
+  opacity: 0.4;
+  animation: cloudFloat 6s ease-in-out infinite 1s;
+}
+
+@keyframes cloudFloat {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(10px) translateY(-1px); }
+  50% { transform: translateX(0) translateY(-2px); }
+  75% { transform: translateX(-10px) translateY(-1px); }
+}

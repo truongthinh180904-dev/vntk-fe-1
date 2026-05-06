@@ -1,0 +1,254 @@
+/* Import font Be Vietnam Pro từ Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;500;500&display=swap'); */
+
+/* Áp dụng font và style cho toàn trang */
+
+/* .blog-detail {
+  
+  font-family: "Be Vietnam Pro", "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif !important;
+} */
+
+.blog-detail h1,
+.blog-detail h2,
+.blog-detail h3,
+.blog-detail h4,
+.blog-detail h5 {
+  line-height: 1.3;
+}
+
+.blog-detail.collapsed {
+  max-height: 1400px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🎯 Chỉ áp dụng cho h1 trong blog */
+.blog-detail h1 {
+  font-size: 1.8rem !important;
+  /* font-weight: 500; */
+}
+
+/* REST CONTENT */
+.blog-rest.collapsed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.blog-rest.expanded {
+  max-height: none;
+}
+
+/* FADE */
+.fade-bottom {
+  height: 120px;
+  margin-top: -120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    #fff 80%
+  );
+}
+
+/* BUTTON */
+.readmore-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.readmore-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+
+
+
+
+/* .blog-detail h2 {
+  font-size: 1.6rem !important;
+  font-weight: 500;
+  margin: 32px 0 16px;
+  position: relative;
+  padding-left: 8px;
+} */
+
+/* thanh nhấn bên trái */
+/* .blog-detail h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 4px;
+  height: 70%;
+  background: #2563eb; /* xanh nhấn */
+  /* border-radius: 2px; */
+/* }  */
+
+.blog-detail h2 {
+  font-size: 1.5rem !important;
+  /* font-weight: 400; */
+}
+
+.blog-detail h3 {
+
+  font-size: 1.4rem !important;
+    /* font-weight: 400; */
+}
+
+.blog-detail h4 {
+
+  font-size: 1.3rem !important;
+    /* font-weight: 400; */
+}
+.blog-detail h5 {
+
+  font-size: 1.3rem !important;
+  /* font-weight: 400; */
+}
+/* Responsive: giảm kích thước trên mobile */
+@media (max-width: 768px) {
+  .blog-detail h1 {
+    font-size: 1.2rem !important;
+  }
+   .blog-detail h2 {
+    font-size: 1.2rem !important;
+  }
+  .blog-detail h3 {
+    font-size: 1.2rem !important;
+  }
+  .blog-detail h4 {
+    font-size: 1.2rem !important;
+  }
+  .blog-detail h5 {
+    font-size: 1.2rem !important;
+  }
+   /* .blogmargintop
+   {
+    margin-top: 400px; 
+   } */
+}
+
+/* .blog-detail {
+  word-break: break-word;
+  overflow-x: auto; 
+} */
+
+/* Tất cả hình ảnh trong nội dung */
+.blog-detail img {
+  max-width: 100%;   /* không vượt quá khung div */
+  height: auto;      /* giữ tỉ lệ */
+  display: block;    /* tránh khoảng trắng lạ */
+  margin: 10px auto; /* căn giữa hình */
+  border-radius: 8px; /* tuỳ chỉnh bo góc nếu muốn */
+}
+
+@media (max-width: 768px) {
+  img[src$=".gif"] {
+    display: none;
+  }
+}
+
+/* GIF cũng áp dụng như img */
+.blog-detail img[src$=".gif"] {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+/* Responsive: điều chỉnh padding/margin khi mobile */
+@media (max-width: 576px) {
+  /* .blog-detail {
+    padding: 0 4px;
+  } */
+  .blog-detail img {
+    max-width: 100%;
+    margin: 5px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-detail h1,
+  .blog-detail h2,
+  .blog-detail h3,
+  .blog-detail h4,
+  .blog-detail h5 {
+    margin-top: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* ===== Blog Detail - Table (Mobile only) ===== */
+@media (max-width: 768px) {
+  .blog-detail {
+    transition: none !important;
+  }
+  .blog-detail table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+  }
+
+  .blog-detail table thead,
+  .blog-detail table tbody {
+    width: max-content; /* 🔥 chìa khóa */
+  }
+
+  .blog-detail th,
+  .blog-detail td {
+    min-width: 140px;   /* tạo overflow thật */
+    white-space: nowrap;
+  }
+
+  .blog-detail [style*="max-width"] {
+    max-width: 100% !important;
+  }
+}
+
+
+
+/* ===== Blog Detail - WordPress Caption ===== */
+.blog-detail .wp-caption {
+  max-width: 100%;
+}
+
+.blog-detail .wp-caption.aligncenter {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+.blog-detail .wp-caption.alignleft {
+  float: left;
+  margin: 0.5rem 1.2rem 0.5rem 0;
+}
+
+.blog-detail .wp-caption.alignright {
+  float: right;
+  margin: 0.5rem 0 0.5rem 1.2rem;
+}
+
+.blog-detail .wp-caption img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.blog-detail .wp-caption-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}

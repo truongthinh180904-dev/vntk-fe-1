@@ -1,0 +1,890 @@
+html {
+  height: 100% !important;
+}
+
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+}
+
+/* Đảm bảo phần nội dung chính (giữa header và footer) 
+   sẽ tự giãn ra để chiếm hết chỗ trống còn lại */
+body > *:not(header):not(footer) {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* globals.css */
+input, 
+textarea, 
+select {
+  font-size: 16px !important;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1180px; /* hoặc 1500px / 1600px */
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px; /* hoặc 1500px / 1600px */
+  }
+}
+
+body {
+  font-display: swap;
+}
+
+/* Hamburger */
+.hamburger {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hamburger-line {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  margin: 3px 0;
+}
+
+/* Active state → X */
+.hamburger.is-active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.is-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Off-canvas menu */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  transition: left 0.3s ease;
+  z-index: 1050;
+}
+.offcanvas-menu.open {
+  left: 0;
+}
+.offcanvas-menu .nav-link {
+  padding: 10px 0;
+  display: block;
+  font-size: 1rem;
+}
+
+.banner_home {
+  height: 429px;
+  border-radius: 0; /* mặc định không bo */
+  overflow: hidden; /* tránh hình bị tràn */
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .banner_home {
+    height: 200px;
+    border-radius: 0 0 20px 20px; /* bo góc dưới trái & phải */
+  }
+}
+.bg-blue-gradient {
+  background: linear-gradient(to bottom, #0045ff, #3b82f6) !important;
+  color: white;
+}
+
+
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+
+
+
+.ContentLeft{
+    text-align: center;
+}
+@media (max-width: 768px) {
+.ContentLeft{
+   text-align: left;
+}
+}
+
+
+/* Ticket card */
+.ticket-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  /* width: 200px; */
+  border: 1px solid #39a0db;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(54, 136, 230, 0.1);
+}
+
+.ticket-card.selected {
+  border: 2px solid #67b0ff;
+}
+
+
+
+
+
+
+.ticket-card::before {
+  left: -10px;
+}
+
+.ticket-card::after {
+  right: -10px;
+}
+
+.ticket-body {
+  padding: 5px;
+}
+
+.ribbon {
+  position: absolute;
+  top: 15px;
+  right: -12px; /* cho nó thò ra ngoài */
+  background: #3949ab;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 20px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.ribbon span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Đuôi ribbon */
+.ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  right: 1px;
+  border-top: 12px solid #283593; /* màu tối hơn để tạo chiều sâu */
+  border-right: 12px solid transparent;
+}
+
+
+.ribbon_home {
+  position: absolute;
+  top: 10px;
+  left: -13px; /* cho nó thò ra ngoài */
+  background:rgb(13, 110, 253);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 20px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.ribbon_home span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Đuôi ribbon */
+.ribbon_home::after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 1px;
+  border-top: 12px solid #283593; /* màu tối hơn để tạo chiều sâu */
+  border-left: 12px solid transparent;
+}
+
+
+.promo-header {
+  color: rgb(45, 66, 113);
+  font-size: 1.8rem;
+}
+
+.promo-icon {
+  color: #f39c12 !important;
+}
+
+.ribbon_venoidia {
+  position: absolute;
+  top: -2px;
+  right: -13px;
+  background: linear-gradient(135deg, #5c6bc0, #3949ab); /* hiệu ứng 3D */
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 20px;
+  text-align: center;
+  line-height: 1;
+  z-index: 10;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.ribbon_venoidia span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Đuôi 3D */
+.ribbon_venoidia::after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  right: 0;
+  border-top: 12px solid #283593; /* phần tối hơn */
+  border-right: 12px solid transparent;
+  filter: brightness(0.9);
+}
+
+
+.bgcards {
+  padding: 20px;
+  background: linear-gradient(135deg, rgb(17, 104, 190), rgb(137, 177, 218));
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hiệu ứng hover khi ở PC */
+.bgcards:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.custom-btn {
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  color: #2D4271;
+  background-color: white;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* 👈 không cho xuống dòng */
+}
+
+.custom-btn:hover {
+  background-color: rgb(0, 124, 232);
+  color: white;
+}
+
+.active-btn {
+  background-color: rgb(0, 124, 232);
+  color: white;
+}
+
+.title-responsive{
+  font-size: 2rem;
+}
+.ContentLeft{
+    text-align: center;
+}
+@media (max-width: 768px) {
+  .title-responsive{
+  font-size: 1.5rem;
+}
+.ContentLeft{
+   text-align: left;
+}
+}
+
+
+/* Improved Breadcrumb Styles */
+.breadcrumb-nav {
+  position: relative;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.breadcrumb-item:hover {
+  transform: translateY(-1px);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: white !important;
+}
+
+
+.breadcrumb-link {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.breadcrumb-link:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.breadcrumb-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.breadcrumb-link:hover::after {
+  width: 80%;
+}
+
+.breadcrumb-current {
+  color: #2d3748;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  color: #cbd5e0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.breadcrumb-separator svg {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* Hiệu ứng cho breadcrumb container */
+
+
+
+/* Responsive adjustments*/
+@media (max-width: 768px) {
+  .breadcrumb-list {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 0.4rem;
+  }
+  
+  .breadcrumb-link {
+    padding: 0.25rem 0.4rem;
+  }
+  
+  .breadcrumb-current {
+    padding: 0.25rem 0.5rem;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb-list {
+    font-size: 1rem;
+  }
+  
+  .breadcrumb-separator {
+    margin: 0 0.3rem;
+  }
+  
+  .breadcrumb-separator svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .breadcrumb-current {
+    max-width: 150px;
+  }
+  
+}
+
+.blog-search{
+    height:200px;
+}
+.no-copy {
+  max-width: 100%;           /* giới hạn không vượt quá container */
+  overflow-wrap: break-word; /* ngắt chữ dài */
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;       /* không cho giữ nguyên 1 dòng dài */
+}
+
+.no-copy img,
+.no-copy iframe,
+.no-copy table {
+  max-width: 100%;   /* ảnh, iframe, bảng không vượt quá container */
+  height: auto;      /* giữ tỉ lệ ảnh */
+  display: block;    /* để không bị inline gây tràn */
+}
+
+
+.flight-card-new {
+  transition: all 0.2s ease-in-out;
+  background-color: #fff;
+  border-radius: 6px !important;
+}
+
+.flight-card-new:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.new-flight-content-wrapper {
+  font-size: 1rem;
+}
+
+.new-flight-content-wrapper-small {
+  font-size: 0.85rem;
+}
+
+/* ==============================
+   ✈️ Tabs layout
+============================== */
+.airline-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.airline-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+/* ==============================
+   🧭 Tab button style
+============================== */
+.airline-tab {
+  position: relative;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+  color: #333;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+.airline-tab:hover {
+  background: linear-gradient(90deg, #e8f0fe, #f1f7ff);
+  color: #0d6efd;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+}
+
+/* ==============================
+   🔥 Active tab
+============================== */
+.airline-tab--active {
+  background:#0d6efd; 
+  color: #fff;
+  border-color: #0d6efd;
+  box-shadow: 0 5px 16px rgba(13, 110, 253, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   ✈️ Plane icon animation
+============================== */
+.plane-icon {
+  transition: transform 0.4s ease, opacity 0.6s ease;
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(20px) rotate(10deg);
+  }
+  70% {
+    transform: translateX(40px) rotate(-10deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(80px) rotate(0deg);
+    opacity: 0;
+  }
+}
+.container-search-mobile{
+  margin-top: 20px;
+}
+.plane-fly {
+  animation: flyAcross 0.9s ease forwards;
+}
+
+.search-page{
+  margin-top: -150px;
+}
+
+/* ==============================
+   💡 Responsive
+==============================*/
+@media (max-width: 768px) {
+  .airline-tab {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .promo-header {
+  color: rgb(45, 66, 113);
+  font-size: 1.7rem;
+}
+  .mt-mb-15 {
+    margin-top: 20px !important;
+    margin-bottom: 0px !important;
+  }
+  .search-page{
+    margin-top: -100px !important;
+  }
+  .container-search-mobile{
+    margin-top: 410px;
+  }
+
+}
+.contact-button
+{
+  color:#2d4271 !important;
+}
+
+
+/* ================================
+   🌐 OFFCANVAS MENU GLOBAL STYLE
+   ================================ */
+
+.offcanvas-menu-custom {
+  position: fixed;
+  top: 0;
+  left: -85%;
+  width: 85%;
+  height: 100vh;
+  background: #fff;
+  transition: left 0.3s ease;
+  z-index: 1050;
+  overflow-y: auto;
+  border-right: 1px solid #eaeaea;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.offcanvas-menu-custom.open {
+  left: 0;
+}
+
+/* Overlay */
+.offcanvas-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1040;
+}
+
+.offcanvas-backdrop-custom.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Header */
+.menu-header-custom {
+  background: #f8f9fa;
+}
+
+/* Nav Links */
+.nav-link-custom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 0;
+  transition: all 0.25s ease;
+  border-radius: 8px;
+}
+
+.nav-link-custom:hover {
+  color: #0d6efd;
+  background-color: #f1f6ff;
+  transform: translateX(3px);
+}
+
+/* Icons */
+.nav-link-custom svg {
+  color: #0d6efd;
+  flex-shrink: 0;
+}
+
+/* Scroll customization */
+.offcanvas-menu-custom::-webkit-scrollbar {
+  width: 6px;
+}
+.offcanvas-menu-custom::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.offcanvas-menu-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+/* Hiệu ứng underline cho navbar link */
+.navbar-nav .nav-link {
+  position: relative;
+  color: #1f2022;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #007bff;
+  transition: transform 0.35s ease;
+  border-radius: 2px;
+}
+
+/* Khi hover vào thì underline chạy ra từ giữa */
+.navbar-nav .nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.hover-bg-light:hover {
+  background-color: #f8f9fa !important;
+}
+
+
+/* Đổi màu text khi hover (tuỳ chọn) */
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+
+
+/*TravelSuggestion card componets nè*/
+.travel-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.travel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.travel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  transition: all 0.4s ease;
+}
+
+.travel-card:hover .travel-overlay {
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;        /* chuẩn mobile */
+  padding: 8px 0;          /* tăng vùng bấm */
+  line-height: 1.4;
+  touch-action: manipulation;
+}
+.footer-title {
+  font-size: 16px;     /* giống h6 */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Mặc định cho màn hình nhỏ (dưới 1250px) */
+.image-container-promotion {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+/* Từ 1250px đến dưới 1350px */
+@media (min-width: 1250px) and (max-width: 1349px) {
+  .image-container-promotion {
+    height: 220px;
+  }
+}
+
+/* Trên 1350px */
+@media (min-width: 1350px) {
+  .image-container-promotion {
+    height: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-container-promotion {
+    height: 240px;
+  }
+}
+
+/* 4 card */
+
+/* Mặc định cho màn hình nhỏ (dưới 1250px) */
+.image-container-4-card {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+/* Từ 1250px đến dưới 1350px */
+@media (min-width: 1250px) and (max-width: 1349px) {
+  .image-container-4-card {
+    height: 180px;
+  }
+}
+
+/* Trên 1350px */
+@media (min-width: 1350px) {
+  .image-container-4-card {
+    height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-container-4-card {
+    height: 240px;
+  }
+}
+
+
+/* Hiệu ứng mờ khi input bị khóa */
+.input-loading {
+  background-color: #f8f9fa !important;
+  cursor: not-allowed;
+}
+
+/* Hiệu ứng xoay cho icon loading */
+.spinner-rotate {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* Hiệu ứng xoay tròn cho icon loading */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Style cho trạng thái bị cấm */
+input:disabled {
+  cursor: not-allowed !important;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+}

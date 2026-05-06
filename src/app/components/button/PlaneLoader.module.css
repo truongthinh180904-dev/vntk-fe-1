@@ -1,0 +1,69 @@
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  border-radius: inherit; /* Tự bo góc theo card cha */
+}
+
+.loaderContainer {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.loadingText {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #003b62;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.loadingWrapper {
+  height: 4px;
+  width: 80%;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader {
+  background: #118fc0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loadBar 3s ease-in-out infinite;
+}
+
+.plane {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  animation: planeFly 3s ease-in-out infinite;
+}
+
+.plane svg {
+  fill: #378ed6;
+}
+
+@keyframes planeFly {
+  0% { transform: translateX(-110px); }
+  100% { transform: translateX(110px); }
+}
+
+@keyframes loadBar {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}

@@ -1,0 +1,302 @@
+.dtc-tab {
+    width: 100%;
+}
+
+    .dtc-tab .dtc-tab-header {
+        display: flex;
+    }
+
+        .dtc-tab .dtc-tab-header .dtc-tab-input[type="radio"] {
+            display: none;
+        }
+
+        .dtc-tab .dtc-tab-header .dtc-tab-label {
+            text-align: center;
+            display: inline-block;
+            width: 50%;
+            cursor: pointer;
+            border: none;
+            color: var(--neu3-cl);
+        }
+
+        .dtc-tab .dtc-tab-header .dtc-tab-input[type="radio"]:checked + .dtc-tab-label {
+            color: var(--pri-cl);
+            background-color: #fff;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--pri-cl);
+        }
+
+    .dtc-tab .dtc-tab-body {
+        padding: 16px 0px;
+        border-top: none;
+    }
+
+        .dtc-tab .dtc-tab-body .dtc-tab-content {
+            display: none;
+        }
+
+.dtc-tab-header:has(#dtc-tab-kg:checked) ~ .dtc-tab-body #dtc-content-kg,
+.dtc-tab-header:has(#dtc-tab-tt:checked) ~ .dtc-tab-body #dtc-content-tt {
+    display: block;
+}
+
+.dtc-checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+    .dtc-checkbox-group .dtc-checkbox-input[type="checkbox"] {
+        display: none;
+    }
+
+    .dtc-checkbox-group .dtc-checkbox-label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        color: var(--pri-cl);
+        border: 1px solid var(--pri-cl);
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .dtc-checkbox-group .dtc-checkbox-input[type="checkbox"]:checked + .dtc-checkbox-label {
+        color: var(--white-cl);
+        background-color: var(--pri-cl)
+    }
+
+.dtc-filter-only {
+    padding: 4px 8px;
+    background-color: var(--sec-cl);
+    font-size: 12px;
+    color: var(--price-cl);
+    border-radius: 12px;
+    display: none;
+    position: absolute;
+    right: 28px;
+}
+
+.dtc-form-check {
+    position: relative;
+}
+
+    .dtc-form-check:hover .dtc-filter-only {
+        display: block;
+    }
+
+.dtc-filter-header-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+/*Slider*/
+.dtc-range-slider {
+    position: relative;
+    height: 24px;
+    padding-top: 10px;
+}
+
+    .dtc-range-slider input[type="range"] {
+        position: absolute;
+        width: 100%;
+        pointer-events: none;
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        background: none;
+    }
+
+        .dtc-range-slider input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            background: #dddddd33;
+            border-radius: 5px;
+            pointer-events: all;
+        }
+
+        .dtc-range-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--pri-cl);
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: all;
+            position: relative;
+            top: -6px;
+            z-index: 1;
+        }
+
+    .dtc-range-slider span {
+        background: var(--pri-cl);
+        position: absolute;
+        height: 4px;
+        width: 96%;
+        left: 2%;
+    }
+
+.dtc-slide-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dtc-filter-mobile {
+    display: none;
+}
+
+.dtc-filter {
+    background-color: var(--white-cl);
+    border: 1px solid var(--neu2-cl);
+    border-radius: var(--box-radius);
+    position: sticky;
+    top: 14px;
+    max-height: calc(100vh - 28px);
+    overflow-y: auto;
+}
+
+    .dtc-filter hr {
+        margin-top: 14px;
+        margin-bottom: 14px;
+    }
+
+.dtc-filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    border-bottom: 1px solid var(--neu2-cl);
+}
+
+.dtc-filter-header {
+    display: none;
+}
+
+#dtcDisplayFilter .dtc-dropdown .dtc-dropdown-btn.btn-down-quotation {
+    background: var(--pri-cl);
+    color: var(--white-cl);
+    padding: 7px;
+    border-radius: var(--inp-radius);
+}
+
+    #dtcDisplayFilter .dtc-dropdown .dtc-dropdown-btn.btn-down-quotation::after {
+        content: '';
+    }
+
+@media (max-width: 768px) {
+    .dtc-filter-header {
+        display: flex;
+    }
+
+    #dtcDisplayFlights #dtcDisplayFilter {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1031;
+        display: none;
+    }
+
+        #dtcDisplayFlights #dtcDisplayFilter .dtc-filter {
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            height: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            overflow: auto;
+            width: 100%;
+            border-radius: 0;
+            border: none;
+        }
+
+        #dtcDisplayFlights #dtcDisplayFilter.dtc-modal-show {
+            display: block;
+        }
+
+    #dtcDisplayFilter.dtc-modal-show .dtc-filter {
+        animation: dtcSlideRight 0.3s forwards;
+    }
+
+    #dtcDisplayFilter.dtc-hide {
+        animation: dtcSlideLeft 0.3s forwards;
+    }
+
+    .dtc-group-header-title + div {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .dtc-list-flight {
+        padding-left: 0;
+        width: 100%;
+    }
+}
+
+#dtcDisplayFlights {
+    align-items: start;
+}
+
+@media (max-width: 576px) {
+    .dtc-group-header-week > div:first-child, .dtc-group-header-week > div:nth-child(2), .dtc-group-header-week > div:last-child, .dtc-group-header-week > div:nth-last-child(2) {
+        display: none;
+    }
+
+    .dtc-group-header-week > div:not(:last-child):not(.dtc-active) {
+        border-right: none;
+    }
+
+    .dtc-group-header-week > .dtc-active {
+        border-left: 1px solid var(--neu2-cl);
+    }
+
+    .dtc-filter-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        background-color: var(--white-cl);
+        padding: 12px;
+        position: fixed;
+        width: 100%;
+        bottom: -1px;
+        left: 0;
+        z-index: 9999;
+        box-shadow: 0 -4px 8px 0 rgba(69, 88, 115, .12);
+    }
+
+        .dtc-filter-mobile #dtc-btn-change-flight-mobile, .dtc-filter-mobile #dtc-btn-open-filter-mobile {
+            width: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 3.5px;
+        }
+
+    .dtc-total-fare.dropup .dtc-list-fare-option {
+        bottom: 0;
+        right: 0;
+        top: unset;
+    }
+
+    .dtc-filter {
+        max-height: 100%;
+    }
+}
+
+@keyframes dtcFilterUp {
+    from {
+        bottom: -100%; /* Start off-screen at the bottom */
+    }
+
+    to {
+        top: 0; /* End position */
+    }
+}

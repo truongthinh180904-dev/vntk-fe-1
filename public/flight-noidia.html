@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Tìm kiếm chuyến bay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    /* Header
+    .flight-header {
+      position: absolute;
+      top: -69px;
+      left: 0;
+      right: 0;
+      background: rgba(30, 109, 142, 0.6);
+      backdrop-filter: blur(5px);
+      border: 2px solid rgb(28, 138, 201);
+      border-radius: 10px 10px 0 0;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      z-index: 10;
+      height:70px;
+    }
+    .flight-header h6 {
+      margin: 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    } */
+
+    /* Cố định form */
+    #dtc-search-form {
+      position: fixed !important;
+      top: 0px; /* cách top 100px */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100% !important;
+      background: white;
+      border: 0 !important;
+      border-radius: 8px !important;
+      padding-top: 100px;
+      margin-top:80px  !important;
+      z-index: 999 !important; /* luôn ở trên */
+    }
+    .dtc-btn-primaryp{
+      background: #0c74b3 !important
+    }
+
+    /* Loại bỏ thanh cuộn của toàn trang */
+    html, body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    @media (max-width: 768px) {
+    #dtcListAirport
+    {
+        z-index: 99999 !important;
+        width: 42vh !important;
+        height: 100vh !important;
+        top: 370px !important;
+    }
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+
+   <script>
+    function showToast(message) {
+    Swal.fire({
+        icon: 'success',
+        title: message,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        // didClose: () => {
+        //     // sau khi toast tắt thì chuyển hướng
+        //     window.location.href = "/";
+        // }
+    });
+}
+    </script>
+
+
+  <div id="dtc-plugin" data-flight-url="/tim-kiem-chuyen-bay" data-key="DTC10978"></div>
+  <script src="/plugin.js" asp-append-version="true"></script>
+
+  
+</body>
+</html>

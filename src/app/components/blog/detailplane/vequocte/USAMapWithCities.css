@@ -1,0 +1,336 @@
+/* Container */
+.usamap-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.usamap-map-container {
+  flex: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.usamap-map {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Panel bên phải */
+.usamap-sidebar {
+  flex: 1;
+  padding: 25px;
+  background: white;
+  border-left: 1px solid #e2e8f0;
+  overflow-y: auto;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.usamap-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.usamap-header h2 {
+  margin: 0 0 8px 0;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.usamap-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Search container */
+.usamap-search-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.usamap-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.usamap-input-icon {
+  position: absolute;
+  left: 12px;
+  color: #64748b;
+  z-index: 2;
+}
+
+.usamap-input-box {
+  padding: 12px 12px 12px 40px;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.usamap-input-box:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: white;
+}
+
+/* Suggestions dropdown */
+.usamap-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 5px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 8px 0;
+}
+
+.usamap-suggestions li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: #334155;
+}
+
+.usamap-suggestions li:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+/* State info */
+.usamap-state-info {
+  margin-bottom: 25px;
+}
+
+.usamap-state-info h3 {
+  margin: 0 0 10px 0;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.usamap-state-info > p {
+  margin: 0 0 15px 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.usamap-city-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.usamap-city-list button {
+  background: transparent;
+  border: 1px solid #dbeafe;
+  color: #1d4ed8;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.usamap-city-list button:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.usamap-city-list button.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* Placeholder */
+.usamap-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: #64748b;
+}
+
+.usamap-placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+/* City info */
+.usamap-city-info {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.usamap-city-header h3 {
+  margin: 0 0 15px 0;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.usamap-trip-type-selector > p {
+  margin: 0 0 12px 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.usamap-trip-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.usamap-trip-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.usamap-trip-btn:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+.usamap-btn-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+/* Routes container */
+.usamap-routes-container {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.usamap-route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.usamap-route-header h4 {
+  margin: 0;
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.usamap-from-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.usamap-from-selector label {
+  color: #64748b;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.usamap-route-select {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.usamap-route-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.usamap-route-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  color: #475569;
+}
+
+.usamap-route-select:focus {
+  outline: 2px solid #3b82f6; /* Màu xanh đẹp hơn */
+  outline-offset: 2px; /* Khoảng cách giữa outline và element */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Hiệu ứng shadow nhẹ */
+}
+.usamap-route-list li:last-child {
+  border-bottom: none;
+}
+
+.usamap-route-icon {
+  margin-right: 10px;
+}
+
+.usamap-back-btn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.usamap-back-btn:hover {
+  color: #1d4ed8;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .usamap-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .usamap-map-container {
+    border-radius: 0;
+    padding: 10px;
+    height: 400px;
+  }
+  
+  .usamap-sidebar {
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+  }
+}

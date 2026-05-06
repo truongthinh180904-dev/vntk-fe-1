@@ -1,0 +1,84 @@
+
+.auth-wrapper {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+}
+
+.auth-card {
+  background: white;
+  max-width: 390px;
+  border-radius: 15px;
+}
+
+.title {
+  font-size: 28px;
+  text-align: center;
+}
+
+.title {
+  width: 50%;
+  font-size: 28px;
+  transition: inherit;
+}
+
+.slide-controls {
+  display: flex;
+  height: 50px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.slide-controls label {
+  flex: 1;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+.slide-controls label.active {
+  color: #fff;
+}
+.slide-controls label:not(.active) {
+  color: #000;
+}
+.slide-controls .signup {
+  color: #000;
+}
+.slide-controls .login {
+  color: #fff;
+}
+.slider-tab {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+  border-radius: 15px;
+  top: 0;
+  transition: left 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 0;
+}
+
+.form-container {
+  width: 100%;
+  overflow: hidden;
+}
+.form-inner {
+  display: flex;
+  width: 200%;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.form_auth {
+  width: 50%;
+  padding: 0 10px;
+}
+.signup-link a {
+  color: #1a75ff;
+  text-decoration: none;
+}
+.signup-link a:hover {
+  text-decoration: underline;
+}

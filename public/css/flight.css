@@ -1,0 +1,2078 @@
+#dtcDisplayFlights {
+    opacity: 0;
+    /*transform: translateY(20px);*/
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+    #dtcDisplayFlights.visible {
+        opacity: 1;
+        /*transform: translateY(0);*/
+    }
+
+#dtcDisplayInput {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: relative;
+    z-index: 10;
+}
+
+    #dtcDisplayInput.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+#dtcDisplayPassenger {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+    #dtcDisplayPassenger.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    #dtcDisplayPassenger.hidden {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+#dtcDisplayAncillary {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+    #dtcDisplayAncillary.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+.dtc-pax-left {
+    width: 70%;
+}
+
+.dtc-pax-cart {
+    display: block;
+    flex-grow: 1;
+}
+
+#dtcDisplayFilter {
+    width: 25%;
+}
+
+.dtc-search-loading {
+    min-height: 56px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dtc-loading-top, .dtc-loading-bottom {
+    text-align: center;
+}
+
+.dtc-loading-bottom {
+    color: var(--dark-cl);
+}
+
+.dtc-fw-bold {
+    font-weight: bold;
+}
+
+.dtc-flight-result {
+    border-radius: 6px;
+    border: 1px solid #dedede;
+    padding: 10px;
+}
+
+#dFormFlight {
+    color: #212529;
+}
+
+.dtc-group-header-title {
+    padding: 14px;
+    background: var(--pri-cl);
+    color: #fff;
+    border-top-left-radius: var(--box-radius);
+    border-top-right-radius: var(--box-radius);
+    display: flex;
+    justify-content: space-between;
+}
+
+    .dtc-group-header-title .dtc-group-header-flight {
+    }
+
+        .dtc-group-header-title .dtc-group-header-flight .dtc-group-header-route {
+            font-size: 18px;
+        }
+
+        .dtc-group-header-title .dtc-group-header-flight .dtc-group-header-depart {
+        }
+
+    .dtc-group-header-title .dtc-header-loader {
+        height: 36px;
+        min-height: unset;
+    }
+
+        .dtc-group-header-title .dtc-header-loader .dtc-loader {
+            --c: no-repeat linear-gradient(#fff 0 0);
+        }
+
+.dtc-group-header-sort {
+    background: #fff;
+    border-bottom-left-radius: var(--box-radius);
+    border-bottom-right-radius: var(--box-radius);
+    padding: 7px 28px 7px 14px;
+    border: 1px solid var(--neu2-cl);
+    border-top: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10.5px;
+}
+
+.dtc-sort {
+    cursor: pointer;
+    padding: 4px 6px 4px 6px;
+    border-radius: 4px;
+}
+
+    .dtc-sort.dtc-checked, .dtc-sort:hover {
+        background: #e7f1ff;
+        color: #0A58CA;
+        position: relative;
+    }
+
+    .dtc-sort.dtc-checked {
+        font-weight: 600;
+        padding-right: 22px;
+    }
+
+        .dtc-sort.dtc-checked::before {
+            content: '';
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none"><path d="M2.5 9L0.999999 9L3 11L5 9L3.5 9L3.5 2L2.5 2L2.5 9ZM11 4L6 4L6 3L11 3L11 4ZM9 10L9 9L11 9L11 10L9 10ZM11 7L7.5 7L7.5 6L11 6L11 7Z" fill="%230A58CA"/></svg>');
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 6px;
+        }
+
+        .dtc-sort.dtc-checked.dtc-sort-desc:before {
+            top: 8px;
+            transform: rotateX(180deg);
+        }
+
+.dtc-group-header-week {
+    display: flex;
+    border-radius: var(--box-radius);
+    background: #fff;
+    text-align: center;
+    border: 1px solid var(--neu2-cl);
+    margin-bottom: 10.5px;
+}
+
+    .dtc-group-header-week > div {
+        flex: 1 0 0%;
+        width: 100%;
+        max-width: 100%;
+        padding-top: 8px;
+        padding-bottom: 5px;
+    }
+
+        .dtc-group-header-week > div > div:first-child {
+            color: #525252;
+            font-size: 12px;
+        }
+
+        .dtc-group-header-week > div > div:last-child {
+            color: #E84E0F;
+        }
+
+    .dtc-group-header-week > .dtc-active {
+        border-bottom: 3px solid #E84E0F;
+        font-weight: 600;
+    }
+
+    .dtc-group-header-week > .dtc-disable {
+        opacity: .5;
+    }
+
+    .dtc-group-header-week > div:not(.dtc-disable):not(.dtc-active) {
+        cursor: pointer;
+    }
+
+    .dtc-group-header-week > div:not(:last-child) {
+        border-right: 1px solid var(--neu2-cl);
+    }
+
+.dtc-please-continue {
+    padding: 8px 0;
+    background: #fff;
+    border: 1px solid var(--neu2-cl);
+    border-radius: var(--box-radius);
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+    .dtc-please-continue > span {
+        background: #0A58CA;
+        height: 20px;
+        width: 38px;
+        border-radius: 0 12px 12px 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+    }
+
+.dtc-option-detail:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.dtc-option-detail > div {
+    padding: 0 14px 14px 14px;
+}
+
+.dtc-text-end {
+    text-align: end;
+}
+
+.dtc-collapse {
+    overflow: hidden;
+    transition: height 0.3s ease;
+    height: 0;
+}
+
+    .dtc-collapse.dtc-open {
+        height: auto;
+    }
+
+.dtc-group-body {
+    background: white;
+    border-radius: var(--box-radius);
+    border: 1px solid var(--neu2-cl);
+}
+
+.dtc-air-row {
+    background: white;
+    border-radius: 0;
+    border-bottom: 1px solid var(--neu2-cl);
+}
+
+    .dtc-air-row:first-child {
+        border-radius: var(--box-radius) var(--box-radius) 0 0;
+    }
+
+    .dtc-air-row:last-child {
+        border-bottom-left-radius: var(--box-radius);
+        border-bottom-right-radius: var(--box-radius);
+        border-bottom: none;
+    }
+
+.dtc-air-option {
+    padding: 7px 10.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .dtc-air-option .dtc-flight-summ {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10.5px;
+        margin-right: 14px;
+    }
+
+    .dtc-air-option .dtc-flight-info {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+
+        .dtc-air-option .dtc-flight-info > div {
+            margin-left: auto;
+        }
+
+            .dtc-air-option .dtc-flight-info > div:first-child {
+                margin-left: 0;
+            }
+
+        .dtc-air-option .dtc-flight-info .dtc-airline {
+            max-width: 100%;
+            width: 120px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin-left: 14px;
+        }
+
+            .dtc-air-option .dtc-flight-info .dtc-airline > * {
+                max-width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+        .dtc-air-option .dtc-flight-info .dtc-flight-startdate {
+            margin-left: 14px;
+        }
+
+    .dtc-air-option .dtc-flight-time {
+        color: var(--text-cl);
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        position: relative;
+    }
+
+    .dtc-air-option .dtc-flight-point {
+        background-color: var(--neu1-cl);
+        color: var(--dark-cl);
+        text-transform: uppercase;
+        font-size: 86%;
+        text-align: center;
+        padding: 2px 3px;
+        border-radius: 2px;
+    }
+
+    .dtc-air-option .dtc-flight-total-time {
+        color: var(--dark-cl);
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .dtc-air-option .dtc-flight-connector-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 12px;
+    }
+
+    .dtc-air-option .dtc-flight-connector-point {
+        font-size: 12px;
+        color: var(--dark-cl);
+    }
+
+    .dtc-air-option .dtc-flighnum {
+        text-align: center;
+        /*margin-left: 2.5rem;*/
+    }
+
+        .dtc-air-option .dtc-flighnum .dtc-flight-number {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 60px;
+            margin: auto;
+            font-weight: 500;
+        }
+
+.dtc-option-group {
+    width: 100%;
+    margin-bottom: 42px;
+}
+
+    .dtc-option-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .dtc-option-group .dtc-selected-header {
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    .dtc-option-group .dtc-flight-header {
+        padding: 16px;
+    }
+
+    .dtc-option-group .dtc-selected-item {
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 0.7px solid var(--neu2-cl);
+    }
+
+        .dtc-option-group .dtc-selected-item .dtc-flight-info {
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+        }
+
+        .dtc-option-group .dtc-selected-item .dtc-airline {
+            line-height: 18px;
+        }
+
+    .dtc-option-group .dtc-selected-flight-box {
+        border: 1px solid var(--neu2-cl);
+        border-radius: var(--box-radius);
+        background-color: var(--white-cl);
+    }
+
+    .dtc-option-group .dtc-airline .dtc-airline-name {
+        font-weight: 500;
+        color: var(--text-cl);
+        font-size: 13px;
+    }
+
+    .dtc-option-group .dtc-airline .dtc-aircraft, .dtc-loyalty-desc {
+        color: var(--dark-cl);
+        font-size: 12px;
+    }
+
+.dtc-time {
+    color: var(--text-cl);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    position: relative;
+}
+
+.dtc-day-difference {
+    color: #FF3B30;
+    position: absolute;
+    font-size: 10px;
+    top: -3px;
+}
+
+.dtc-option-group .dtc-point {
+    background-color: var(--neu1-cl);
+    color: var(--dark-cl);
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    padding: 2px 3px;
+    border-radius: 2px;
+}
+
+.dtc-option-group .dtc-total-time {
+    color: var(--dark-cl);
+    font-size: 11px;
+    text-align: center;
+}
+
+.dtc-option-group .dtc-connector-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+}
+
+.dtc-option-group .dtc-connector-point {
+    font-size: 11px;
+    color: var(--dark-cl);
+}
+
+.dtc-option-group .dtc-detail {
+    color: var(--sys-blue-cl);
+    font-size: 85%;
+    margin-top: 2px;
+}
+
+    .dtc-option-group .dtc-detail .dtc-detail-icon {
+        display: none;
+    }
+
+.dtc-option-group .dtc-fare-info {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dtc-option-group .fare-text {
+    color: var(--sys-green-cl);
+    font-size: 14px;
+}
+
+[onclick]:not(.dtc-disable) {
+    cursor: pointer;
+}
+
+.dtc-total-fare {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 2.8px !important;
+    position: relative;
+    background: transparent !important;
+    padding: 4.9px 2.1px 4.9px 7px;
+    color: var(--text-cl);
+}
+
+    .dtc-total-fare b {
+        color: #E84E0F;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+.dtc-connector {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dtc-list-fare-option {
+    position: absolute;
+    top: 101%;
+    display: none;
+    background: white;
+    z-index: 10;
+    right: 0;
+    min-width: 260px;
+    text-align: left;
+    max-height: 368px;
+    overflow-y: auto;
+    box-shadow: rgb(0 0 0 / 16%) 0px 0px 15px 6px;
+    border-radius: var(--inp-radius);
+    line-height: unset;
+}
+
+.dtc-group-body .dtc-total-fare.dtc-show .dtc-list-fare-option {
+    display: block;
+}
+
+.dtc-list-fare-option > div {
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--neu2-cl);
+}
+
+    .dtc-list-fare-option > div:last-child {
+        border-bottom: none;
+    }
+
+.dtc-list-fare-option .dtc-line-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .dtc-list-fare-option .dtc-line-1 .dtc-farename {
+        margin-right: 14px;
+        white-space: nowrap;
+    }
+
+    .dtc-list-fare-option .dtc-line-1 .dtc-price {
+        color: var(--price-color);
+        font-weight: 500;
+    }
+
+    .dtc-list-fare-option .dtc-line-1 .dtc-currency {
+        margin-left: 3px;
+    }
+
+.dtc-list-fare-option .dtc-line-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .dtc-list-fare-option .dtc-line-2 .dtc-farebasis {
+        color: var(--neu4-cl);
+        margin-right: 14px;
+    }
+
+    .dtc-list-fare-option .dtc-line-2 .remain {
+        color: forestgreen;
+    }
+
+.dtc-list-fare-option > div.dtc-disable {
+    opacity: .4;
+    cursor: default;
+}
+
+.dtc-list-fare-option > div:not(.dtc-disable):hover, .dtc-list-fare-option > div.dtc-active {
+    background: #E7F1FF;
+}
+
+.dtc-option-detail-info {
+    display: grid;
+    /*gap: .5rem;*/
+}
+
+    .dtc-option-detail-info > div {
+        margin-bottom: 14px;
+    }
+
+    .dtc-option-detail-info .dtc-flight-title {
+        font-size: 110%;
+        background: var(--sec-cl);
+        padding: 7px 7px;
+        margin-bottom: 10.5px;
+        border-radius: 4px;
+        border-left: 6px solid var(--pri-cl);
+    }
+
+        .dtc-option-detail-info .dtc-flight-title strong {
+            color: #3577f1;
+        }
+
+    .dtc-option-detail-info .dtc-segment {
+        width: 100%;
+        display: flex;
+        /*padding: .75rem;
+        border: 1px solid var(--neu2-cl);
+        border-radius: var(--box-radius);*/
+    }
+
+    .dtc-option-detail-info .dtc-info {
+        width: 50%;
+        padding: 10.5px;
+        border-radius: var(--box-radius);
+        background: #f7f7f7;
+    }
+
+    .dtc-option-detail-info .dtc-left {
+        width: 50%;
+        display: flex;
+    }
+
+    .dtc-option-detail-info strong {
+        color: #212529;
+    }
+
+    .dtc-option-detail-info table {
+        table-layout: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    .dtc-option-detail-info img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dtc-option-detail-info .dtc-detail-date {
+        font-size: 12px;
+        color: #525252;
+        line-height: 1;
+    }
+
+    .dtc-option-detail-info .dtc-detail-city {
+        font-weight: bold;
+    }
+
+    .dtc-option-detail-info .dtc-detail-time {
+        text-align: center;
+    }
+
+        .dtc-option-detail-info .dtc-detail-time .dtc-detail-hour {
+            font-weight: 700;
+            font-size: 110%;
+        }
+
+    .dtc-option-detail-info .dtc-airline {
+        text-align: center;
+    }
+
+    .dtc-option-detail-info .dtc-head, .dtc-option-detail-info .dtc-detail-route {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .dtc-option-detail-info .dtc-line {
+        display: flex;
+        flex-direction: column;
+        padding: 7px 14px;
+    }
+
+    .dtc-option-detail-info .dtc-dot {
+        width: 8px;
+        height: 8px;
+        border: 2.4px solid #0A58CA;
+        border-radius: 4px;
+    }
+
+    .dtc-option-detail-info .dtc-inner {
+        flex-grow: 1;
+        width: 5px;
+        border-right: 2px solid #0A58CA;
+    }
+
+    .dtc-option-detail-info .dtc-dot:first-child {
+        opacity: .6;
+    }
+
+    .dtc-option-detail-info .dtc-dot:last-child {
+        background: #0A58CA;
+        border-color: #599dff;
+    }
+
+    .dtc-option-detail-info .dtc-stop-info {
+        color: red;
+        margin-top: 12px !important;
+        margin-bottom: 12px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+        .dtc-option-detail-info .dtc-stop-info .dtc-country {
+            margin-left: 5px;
+            padding-left: 5px;
+            border-left: 1px solid #cacaca;
+            line-height: 1;
+        }
+
+    .dtc-option-detail-info .dtc-detail-airport {
+        color: #474747;
+        font-size: 90%;
+    }
+
+.dtc-detail-list-fare {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 14px 14px 14px 0;
+    margin: 0 -14px 14px -14px;
+    background: #3577f1;
+    background: linear-gradient(15deg, #3577f1, #76cdff, #075eff);
+    cursor: grab;
+    user-select: none;
+}
+
+    .dtc-detail-list-fare.dtc-dragging {
+        cursor: grabbing;
+    }
+
+    .dtc-detail-list-fare > div {
+        box-shadow: 0 1px 5px #00000017;
+        border-radius: var(--box-radius);
+        display: inline-block;
+        width: 33.33%;
+        padding: 15px;
+        margin-left: 14px;
+        vertical-align: top;
+        background: white;
+        min-width: 260px;
+    }
+
+.dtc-fare-option .dtc-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.dtc-fare-option .fare-select {
+    display: grid;
+    gap: 7px;
+}
+
+.dtc-fare-option table {
+    width: 100%;
+    margin-left: -2px;
+    margin-bottom: 10px;
+}
+
+.dtc-fare-option .fare-select {
+    display: grid;
+    gap: 7px;
+}
+
+.dtc-fare-option .dtc-fare-select {
+    display: grid;
+    gap: 8px;
+}
+
+.dtc-fare-option td {
+    /*padding: 6px 0;*/
+}
+
+    .dtc-fare-option td .dtc-text-success {
+        color: #0E8C35;
+    }
+
+    .dtc-fare-option td:first-child {
+        color: #525252;
+    }
+
+    .dtc-fare-option td:last-child {
+        text-align: right;
+    }
+
+.dtc-info-data td, .dtc-info td {
+    border: none !important;
+    padding: 0;
+}
+
+.dtc-fare-option a.dtc-btn-detail {
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dtc-fare-option .dtc-fare-family {
+    color: #474747;
+    margin-top: 0px;
+    text-align: start;
+}
+
+.dtc-fare-option span.dtc-price {
+    color: #E84E0F;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 3px;
+}
+
+.dtc-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000070;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+    .dtc-modal.dtc-show {
+        display: block;
+    }
+
+    .dtc-modal .dtc-modal-dialog {
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        min-height: 100%;
+        width: 680px;
+        max-width: 98vw;
+        animation: dtcSlideIn 0.3s;
+        margin: auto;
+    }
+
+    .dtc-modal.dtc-hide .dtc-modal-dialog {
+        animation: dtcSlideOut 0.3s forwards;
+    }
+
+    .dtc-modal .dtc-modal-dialog.dtc-sm {
+        width: 576px;
+    }
+
+    .dtc-modal .dtc-modal-dialog.dtc-lg {
+        width: 992px;
+    }
+
+    .dtc-modal .dtc-modal-dialog.dtc-xl {
+        width: 1200px;
+    }
+
+    #dtc-plugin .dtc-modal .dtc-close-btn {
+        margin-right: 14px;
+    }
+
+    .dtc-modal .dtc-modal-content {
+        width: 100%;
+        background: #fff;
+        border-radius: var(--box-radius);
+        margin: 0 1%;
+    }
+
+    .dtc-modal .dtc-modal-footer {
+        padding: 0 14px 14px 14px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .dtc-modal .dtc-modal-body {
+        padding: 14px;
+    }
+
+    .dtc-modal .dtc-modal-header div {
+        align-items: center;
+        display: flex;
+        padding: 14px 0 14px 14px;
+        border-bottom: 1px solid var(--neu2-cl);
+        justify-content: space-between;
+    }
+
+    .dtc-modal .dtc-modal-header label.modal-title {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+.dtc-tabs-detail {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--neu2-cl);
+    margin: -14px -14px 0 -14px;
+}
+
+    .dtc-tabs-detail > div {
+        display: flex;
+    }
+
+    .dtc-tabs-detail .dtc-tab {
+        padding: 14px 245px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 110%;
+        white-space: nowrap;
+    }
+
+        .dtc-tabs-detail .dtc-tab.dtc-active {
+            font-weight: bold;
+            position: relative;
+            cursor: default;
+        }
+
+            .dtc-tabs-detail .dtc-tab.dtc-active:before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: var(--pri-cl);
+                left: 0;
+                bottom: -2px;
+            }
+
+.dtc-list-group {
+    border: 1px solid var(--neu2-cl);
+    border-radius: var(--box-radius);
+}
+
+    .dtc-list-group .dtc-list-item {
+        display: flex;
+        padding: 12px;
+        justify-content: space-between;
+    }
+
+        .dtc-list-group .dtc-list-item:not(:last-child) {
+            border-bottom: 1px solid var(--neu2-cl);
+        }
+
+.dtc-tab-fare-info {
+    background: #f7f7f7;
+    border-radius: var(--box-radius);
+    padding: 14px;
+    display: grid;
+    gap: 8px;
+}
+
+    .dtc-tab-fare-info > div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dtc-tab-fare-info .dtc-modal-fare-price {
+        color: var(--price-cl);
+    }
+
+    .dtc-tab-fare-info .dtc-modal-seat-avail {
+        font-size: 11px;
+    }
+
+        .dtc-tab-fare-info .dtc-modal-seat-avail > span {
+            color: var(--pri-cl);
+            font-weight: 600;
+        }
+
+    .dtc-tab-fare-info .dtc-modal-service {
+        font-size: 12px;
+    }
+
+    .dtc-tab-fare-info .dtc-modal-service-value {
+        color: var(--pri-cl);
+        font-weight: 600;
+    }
+
+    .dtc-tab-fare-info > div.dtc-border-detail {
+        padding: 12px 0;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #e0e0e0;
+    }
+
+    .dtc-tab-fare-info > div.dtc-fare-info > div {
+        width: 50%;
+        display: grid;
+        gap: 8px;
+    }
+
+        .dtc-tab-fare-info > div.dtc-fare-info > div:first-child {
+            border-right: 1px solid var(--neu2-cl);
+            padding-right: 12px;
+        }
+
+        .dtc-tab-fare-info > div.dtc-fare-info > div:last-child {
+            margin-left: 12px;
+        }
+
+        .dtc-tab-fare-info > div.dtc-fare-info > div > div {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+[data-dismiss="modal"] {
+    cursor: pointer;
+}
+
+.dtc-tab-content .dtc-tab-pane:not(.dtc-active) {
+    display: none;
+}
+
+.dtc-tab-content .dtc-modal-fare-title, .dtc-list-group .dtc-modal-fare-title {
+    color: var(--dark-cl);
+}
+
+.dtc-list-group .dtc-modal-family {
+    color: var(--pri-cl);
+    font-weight: 600;
+}
+
+.dtc-list-group .dtc-modal-refund {
+    color: var(--sys-green-cl);
+    font-weight: 600;
+}
+
+.dtc-modal-total-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dtc-list-group .dtc-modal-fare-total {
+    color: var(--price-cl);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.dtc-option-group.dtc-selected {
+    display: none;
+}
+
+.dtc-list-flight {
+    flex: 1;
+    width: 75%;
+}
+
+.dtc-flight-connector-line {
+    border-bottom: 1px solid #c9c9c9;
+    min-width: 79px;
+    margin: 3.5px 0;
+    position: relative;
+}
+
+.dtc-flight-segment-content {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    transform: translate(0, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dtc-flight-segment-point {
+    width: 6px;
+    height: 6px;
+    background-color: var(--price-cl);
+    border-radius: 50%;
+}
+
+.dtc-mobile-flight {
+    display: none;
+}
+
+.dtc-farerule {
+    text-align: left;
+}
+
+.dtc-farerule-group {
+    border-radius: var(--inp-radius);
+    border: 1px solid var(--neu2-cl);
+    overflow: hidden;
+}
+
+.dtc-farerule-header {
+    background-color: #f6f6f6;
+    padding: 15px 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dtc-farerule-body {
+    background-color: var(--white-cl);
+    overflow-x: auto;
+}
+
+.dtc-farerule-item {
+    border-top: 1px solid var(--neu2-cl);
+}
+
+.dtc-farerule-title {
+    padding: 10.5px 14px;
+}
+
+.dtc-farerule-content {
+    padding: 0 14px 14px 14px;
+    font-family: monospace;
+    color: #8b0000;
+}
+
+.dtc-farerule-error {
+    padding: 15px;
+    text-align: center;
+    color: var(--neu3-cl);
+    font-weight: 500;
+    width: 100%;
+}
+
+.dtc-confirm-footer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: 8px;
+}
+
+button.dtc-btn.dtc-btn-lg.dtc-btn-modal-close {
+    background: var(--white-cl);
+}
+
+.dtc-modal .dtc-modal-content .dtc-modal-footer .dtc-btn-book {
+    background-color: var(--price-cl);
+    color: var(--white-cl);
+    cursor: pointer;
+}
+
+.dtc-modal .dtc-modal-confirm {
+    background-color: #33416E;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1016%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(64%2c 81%2c 137%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c650.704C122.328%2c648.746%2c159.175%2c473.043%2c255.674%2c397.837C339.724%2c332.333%2c461.529%2c324.924%2c526.449%2c240.421C598.428%2c146.73%2c655.546%2c24.847%2c631.015%2c-90.726C606.666%2c-205.444%2c482.926%2c-263.497%2c401.565%2c-347.958C325.215%2c-427.217%2c275.543%2c-549.012%2c167.826%2c-571.563C60.344%2c-594.065%2c-27.703%2c-482.932%2c-135.163%2c-460.325C-256.336%2c-434.833%2c-401.929%2c-509.651%2c-497.972%2c-431.495C-592.807%2c-354.321%2c-579.865%2c-206.886%2c-595.603%2c-85.635C-611.133%2c34.016%2c-656.761%2c169.183%2c-588.884%2c268.934C-520.854%2c368.909%2c-362.458%2c340.324%2c-260.989%2c406.106C-158.875%2c472.306%2c-121.679%2c652.651%2c0%2c650.704' fill='%2333416e'%3e%3c/path%3e%3cpath d='M1440 995.672C1519.728 984.741 1563.12 899.779 1626.466 850.1469999999999 1682.6390000000001 806.135 1756.261 782.602 1791.2939999999999 720.431 1827.571 656.052 1835.537 577.6610000000001 1820.814 505.247 1806.518 434.933 1753.2640000000001 383.16999999999996 1710.941 325.228 1664.475 261.614 1634.992 175.16000000000003 1560.657 149.07999999999998 1485.96 122.87299999999999 1402.146 155.543 1332.03 192.289 1269.541 225.038 1232.754 287.251 1189.969 343.347 1149.925 395.849 1115.781 448.9 1089.96 509.672 1056 589.599 988.9680000000001 671.1659999999999 1015.557 753.837 1041.91 835.774 1142.714 863.61 1217.498 906.22 1288.388 946.611 1359.167 1006.755 1440 995.672' fill='%234d61a4'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1016'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dtc-modal .dtc-confirm-title {
+    color: var(--white-cl);
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .dtc-modal .dtc-confirm-title:first-child {
+        margin-top: 0;
+    }
+
+.dtc-modal .dtc-confirm-table {
+    color: var(--white-cl);
+}
+
+    .dtc-modal .dtc-confirm-table td {
+        padding-right: 7px;
+        border: none !important;
+        color: var(--white-cl);
+    }
+
+#dtcConfirmBook .dtc-btn-confirm-close {
+    width: 1em;
+    height: 1em;
+    padding: .25em .25em;
+    color: #000;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 100 100'%3E%3Cline x1='10' y1='10' x2='90' y2='90' stroke='white' stroke-width='10'/%3E%3Cline x1='10' y1='90' x2='90' y2='10' stroke='white' stroke-width='10'/%3E%3C/svg%3E") center / 1em auto no-repeat;
+    border: 0;
+    border-radius: 3.5px;
+    opacity: .5;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 12px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#dtcConfirmBook .dtc-modal-body {
+    padding: 28px;
+}
+
+#dtcConfirmBook .dtc-modal-header {
+    padding: 15px 15px 0 15px;
+    text-align: end;
+}
+
+/*.dtc-err-content {
+    margin: 10px;
+}*/
+.dtc-err-content:not(:last-child) {
+    border-bottom: 1px solid var(--neu2-cl);
+}
+
+.dtc-confirm-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white-cl);
+    column-gap: 12px;
+    margin-top: 14px;
+}
+
+    .dtc-confirm-total .dtc-confirm-line {
+        border-top: 1px dashed var(--white-cl);
+        flex: 1;
+    }
+
+.dtc-filter-mobile {
+    display: none;
+}
+
+.dtc-nodata {
+    display: none;
+    margin-top: 14px;
+    color: var(--dark-cl);
+    text-align: center;
+    font-size: 15px;
+}
+
+    .dtc-nodata.dtc-show {
+        display: block;
+    }
+
+.dtc-error-body {
+    padding: 14px;
+    text-align: center;
+    color: var(--dark-cl);
+}
+
+.dtc-selected-flight {
+    border-top: 1px solid var(--neu2-cl);
+}
+
+    .dtc-selected-flight:first-child {
+        border-top: 0;
+    }
+
+    .dtc-selected-flight .dtc-air-option {
+        padding: 10.5px;
+    }
+
+        .dtc-selected-flight .dtc-air-option .dtc-flight-info .dtc-airline {
+            width: 150px;
+        }
+
+        .dtc-selected-flight .dtc-air-option .dtc-flight-summ {
+            margin-right: 42px;
+        }
+
+.dtc-flight-fareclass, .dtc-merge-detail-txt {
+    display: none;
+}
+
+.dtc-currency-dropicon {
+    width: 19px;
+    height: 19px;
+}
+
+.dtc-flight-air-logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.dtc-cart-flight-logo.dtc-flight-air-logo {
+    flex-direction: unset;
+}
+
+.dtc-flight-air-logo img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0 !important;
+}
+
+.dtc-flight-price-content {
+    flex: 1;
+    min-width: 168px;
+    justify-items: end;
+}
+#dtcQuote .dtc-flight-price-content {
+    flex: unset;
+    min-width: unset;
+}
+
+.dtc-farebasic-option {
+    max-width: 100px;
+    overflow: hidden;
+    text-align: end;
+    display: block;
+    text-overflow: ellipsis;
+    float: right;
+}
+
+.dtc-flight-mobile-info, .dtc-selected-flight .dtc-mobile-selected-info {
+    display: none;
+}
+
+#dtcSearchLoading {
+    padding: 42px 0;
+}
+
+    #dtcSearchLoading .dtc-loading-route {
+        font-size: 16px;
+    }
+
+.dtc-info.dtc-connect-info {
+    display: none;
+}
+
+.dtc-confirm-wrap {
+    position: relative;
+}
+
+.dtc-d-flightdate, .dtc-t-startdate {
+    display: none;
+}
+
+.dtc-remain {
+    white-space: nowrap;
+}
+
+.dtc-verify-title {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--pri-cl);
+}
+
+.dtc-verify-desc {
+    text-align: center;
+    color: var(--neu4-cl);
+}
+
+#dtcQuote .dtc-air-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    #dtcQuote .dtc-air-row .dtc-flight-info {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 3.5px;
+    }
+
+        #dtcQuote .dtc-air-row .dtc-flight-info:last-child {
+            margin-bottom: 0;
+        }
+
+#dtcQuote .dtc-air-row {
+    padding-left: 7px;
+}
+
+#dtcQuote .dtc-flight-air-logo img {
+    width: 20px;
+    height: 20px;
+}
+
+#dtcQuote .dtc-total-fare b {
+    font-size: 15px;
+}
+
+#dtcQuote .dtc-air-row .dtc-air-row:first-child {
+    border-radius: unset;
+}
+
+#dtcQuote .dtc-group-body {
+    border-radius: 0 0 var(--box-radius) var(--box-radius);
+}
+
+#dtcQuote .dtc-flight-summ .dtc-flight-startdate {
+    font-weight: 600;
+}
+
+#dtcQuote .dtc-flight-summ .dtc-flight-point {
+    color: var(--neu3-cl);
+}
+
+#dtcQuote {
+    overflow: auto;
+    display: grid;
+    max-height: 468px;
+}
+
+    #dtcQuote .dtc-group-header {
+        background: var(--pri-cl);
+        color: #fff;
+        padding: 14px;
+        border-radius: var(--box-radius) var(--box-radius) 0 0;
+    }
+
+    #dtcQuote .dtc-export-table {
+        width: 100%;
+    }
+
+        #dtcQuote .dtc-export-table tr:not(.dtc-separate) td:last-child {
+            text-align: end;
+        }
+
+        #dtcQuote .dtc-export-table tr:not(.dtc-separate) td {
+            padding: 3.5px;
+            white-space: nowrap;
+        }
+
+    #dtcQuote .dtc-separate td {
+        border-top: 1.25px dashed var(--neu3-cl);
+    }
+
+    #dtcQuote .dtc-separate:last-child td {
+        border-top: unset;
+    }
+
+.dtc-copy-toast {
+    background-color: var(--white-cl);
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 5%);
+    z-index: 99999;
+    padding: 7px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.dtc-flight-equipment{
+    width: 77px;
+}
+
+#dtcDisplayFlights > .dtc-flex {
+    column-gap: 14px;
+}
+
+@media (max-width: 1200px) {
+    .dtc-flight-price-content {
+        min-width: 145px;
+    }
+
+    .dtc-air-option .dtc-flight-info .dtc-airline {
+        margin-left: 10.5px;
+    }
+
+    .dtc-air-option .dtc-flight-info .dtc-flight-startdate {
+        margin-left: 10.5px;
+    }
+
+    .dtc-selected-flight .dtc-air-option .dtc-flight-info .dtc-flight-startdate {
+        margin-left: 14px;
+    }
+
+    .dtc-flight-info .dtc-airline {
+        width: 90px;
+    }
+
+    .dtc-flight-mobile-info {
+        display: none;
+    }
+
+    #dListSelectFlight .dtc-flight-summ {
+        margin-right: unset;
+    }
+
+    #dListSelectFlight .dtc-flight-info .dtc-airline {
+        width: 120px;
+    }
+}
+.dtc-minify .dtc-total-fare {
+    padding: 2.8px 2.8px 2.8px 7px;
+}
+.dtc-minify .dtc-total-fare b {
+    margin-right: 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+.dtc-minify .dtc-total-fare .dtc-currency {
+    display: none;
+}
+.dtc-minify .dtc-btn-select-flight {
+    padding: 6px 8px;
+    font-size: 11px;
+}
+.dtc-minify .dtc-air-option {
+    padding: 3.5px 10.5px;
+}
+.dtc-minify .dtc-mobile-flight-select {
+    display: none;
+}
+.dtc-minify .dtc-flight-summ {
+    gap: 0;
+}
+.dtc-minify .dtc-flight-price-content {
+    min-width: 120px;
+}
+.dtc-exe-download {
+    display: flex;
+    column-gap: 7px;
+}
+@media (max-width: 992px) {
+    .dtc-flight-info .dtc-airline, .dtc-option-group .dtc-flighnum, .dtc-flight-stop {
+        display: none;
+    }
+
+    .dtc-air-option {
+        padding: 8px;
+    }
+
+    .dtc-total-fare {
+        font-size: 14px;
+    }
+
+        .dtc-total-fare b {
+            font-size: 16px;
+        }
+
+    .dtc-group-header-week > div:first-child, .dtc-group-header-week > div:last-child {
+        display: none;
+    }
+
+    #dFlights .dtc-flight-price-content {
+        min-width: unset;
+    }
+
+    .dtc-flight-air-logo .dtc-mobile-flight-number {
+        font-size: 11px;
+        line-height: 1;
+        color: var(--dark-cl);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 3.5px;
+    }
+
+    .dtc-mobile-flight-number, .dtc-t-startdate {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .dtc-air-option .dtc-flight-summ {
+        gap: 7px;
+    }
+
+    .dtc-air-option .dtc-flight-info {
+        column-gap: 0;
+    }
+
+        .dtc-air-option .dtc-flight-info > div {
+            margin-left: auto;
+        }
+
+    .dtc-flight-connector {
+        flex-grow: 1;
+        padding: 0 10px;
+    }
+
+    .dtc-flight-connector-line {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .dtc-modal .dtc-modal-dialog {
+        width: 100%;
+        max-width: unset;
+    }
+
+    .dtc-tabs-detail > div:first-child {
+        max-width: 90%;
+    }
+
+    .dtc-tabs-detail .dtc-tab {
+        padding: 10.5px 14px;
+    }
+
+    .dtc-tab-pane > div.dtc-fare-info > div:first-child {
+        border-right: unset;
+        padding-right: unset;
+    }
+
+    .dtc-tab-pane > div {
+        flex-wrap: wrap;
+    }
+
+        .dtc-tab-pane > div.dtc-fare-info > div {
+            display: block;
+            width: 100%;
+        }
+
+            .dtc-tab-pane > div.dtc-fare-info > div:last-child {
+                margin-left: 0;
+            }
+
+        .dtc-tab-pane > div.dtc-fare-info {
+            line-height: 22px;
+        }
+
+    .dtc-air-option {
+        border: none;
+        border-radius: var(--box-radius);
+    }
+
+        .dtc-air-option .dtc-airline, .dtc-air-option .dtc-flighnum, .dtc-flight-country-code {
+            display: none;
+        }
+
+    .dtc-group-body {
+        background: unset;
+        border: 1px solid var(--neu2-cl);
+    }
+
+    .dtc-mobile-flight-info {
+        display: block;
+    }
+
+    .dtc-total-fare {
+        margin-right: 1px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .dtc-fairline-name {
+        font-weight: 700;
+        display: block;
+    }
+
+    .dtc-option-detail-info .dtc-segment {
+        flex-wrap: wrap;
+        row-gap: 12px;
+    }
+
+    .dtc-option-detail-info .dtc-left, .dtc-option-detail-info .dtc-info {
+        width: 100%;
+        line-height: 22px;
+    }
+
+    .dtc-list-flight {
+        padding-left: 0;
+    }
+
+    .dtc-filter-mobile {
+        display: flex;
+    }
+
+    .dtc-search-mobile {
+        position: fixed;
+        width: 100%;
+        background: #fff;
+        z-index: 15;
+        top: 0;
+        animation: dtcSlideRight 0.3s forwards;
+        max-height: 100vh;
+        overflow-y: auto;
+        border-radius: 0 !important;
+        height: 100%;
+        border: none !important;
+        left: 0;
+        display: none;
+    }
+
+        .dtc-search-mobile.dtc-modal-show {
+            display: block;
+        }
+
+    .dtc-search-mobile-wrap {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+    }
+
+    #dtc-group-btn-book, .dtc-pax-action {
+        display: none !important;
+    }
+
+    .dtc-flight-connector img {
+        max-width: 60px;
+        width: auto;
+    }
+
+    .dtc-total-fare .dtc-currency {
+        display: none;
+    }
+
+    .dtc-total-fare b {
+        margin-right: 0;
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    .dtc-currency-dropicon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .dtc-flight-air-logo {
+        width: 40px;
+        text-align: center;
+    }
+
+        .dtc-flight-air-logo img {
+            width: 25px;
+            height: 25px;
+        }
+
+
+    .dtc-btn-select-flight {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    .dtc-mobile-flight-select {
+        display: none;
+    }
+
+    .dtc-search-header {
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px;
+        border-bottom: 1px solid var(--neu2-cl);
+    }
+
+        .dtc-search-header.dtc-show {
+            display: flex;
+        }
+
+    .dtc-search-header-title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .dtc-air-option .dtc-flight-time {
+        font-size: 14px;
+    }
+
+    .dtc-air-option .dtc-flight-total-time {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .dtc-selected-flight .dtc-selected-fare {
+        display: none;
+    }
+
+    .dtc-selected-flight .dtc-air-row {
+        border: 0;
+    }
+
+    .dtc-selected-flight .dtc-air-option {
+        padding: 0;
+        border: 0;
+    }
+
+    .dtc-selected-flight .dtc-selected-detail-info {
+        width: 100%;
+        background-color: var(--sec-cl);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dtc-selected-flight .dtc-mobile-flight-date {
+        font-size: 12px;
+        color: var(--dark-cl);
+    }
+
+    .dtc-selected-flight .dtc-fare-info {
+        column-gap: 4px;
+        padding-right: 0;
+        white-space: nowrap;
+    }
+
+        .dtc-selected-flight .dtc-fare-info > img {
+            height: 16px !important;
+            width: auto !important;
+        }
+
+        .dtc-selected-flight .dtc-fare-info .fare-text {
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+    .dtc-selected-flight .dtc-air-option .dtc-flight-summ {
+        max-width: 250px;
+        margin-right: 0;
+        padding: 9.8px;
+        gap: 7px;
+    }
+
+    .dtc-selected-flight .dtc-mobile-selected-info {
+        display: block;
+    }
+
+    .dtc-selected-flight .dtc-selected-fare-info > div {
+        width: 100%;
+        background-color: var(--sec-cl);
+        padding: 3.5px 9.8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .dtc-selected-mobile-fare > .dtc-total-fare > b {
+        margin-right: 3.5px;
+    }
+
+    .dtc-selected-flight .dtc-selected-mobile-fare {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .dtc-selected-flight .dtc-detail-list-fare > div {
+        width: calc(100% - 14px);
+    }
+
+    .dtc-selected-flight .mobile-btn-reselected {
+        display: none;
+    }
+
+    .dtc-selected-flight .dtc-mobile-selected-info-wrap {
+        padding-right: 9.8px;
+        width: 120px;
+        text-align: right;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+        .dtc-selected-flight .dtc-mobile-selected-info-wrap .dtc-selected-airline {
+            font-size: 13px;
+            color: var(--sys-blue-cl);
+            /*text-overflow: ellipsis;*/
+            white-space: normal;
+            line-height: 1.2;
+            /*max-width: 100%;*/
+            /*overflow: hidden;*/
+        }
+
+        .dtc-selected-flight .dtc-mobile-selected-info-wrap .dtc-selected-depart {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+    .mobile-card-action .dtc-btn-lg {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .mobile-card-action .dtc-mobile-pax-prev {
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
+
+    #dtcConfirmBook .dtc-modal-body {
+        padding: 21px;
+    }
+
+    .dtc-flight-mobile-info {
+        display: block;
+    }
+
+    .dtc-mobile-aircraft {
+        font-size: 11px;
+        color: var(--dark-cl);
+    }
+
+    .dtc-loading-bottom {
+        padding: 0 42px;
+    }
+
+    .dtc-option-detail-info .dtc-stop-info .dtc-country {
+        margin-top: 3.5px;
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .dtc-detail-list-fare {
+        display: flex;
+    }
+
+        .dtc-detail-list-fare > div {
+            flex: 1 0 0;
+            width: unset;
+        }
+
+    .dtc-option-detail-info .dtc-info.dtc-connect-info {
+        display: block;
+    }
+
+    .dtc-option-detail-info .dtc-info, .dtc-option-detail-info .dtc-connect-airline {
+        display: none;
+    }
+
+    .dtc-total-flight-number {
+        display: block;
+    }
+
+    .dtc-option-detail-info .dtc-info {
+        padding: 7px;
+    }
+
+    .dtc-modal .dtc-confirm-table td {
+        white-space: nowrap;
+    }
+
+    .dtc-confirm-content {
+        max-height: 430px;
+        overflow: auto;
+    }
+
+    #dtcDisplayFlights {
+        padding-bottom: 56px;
+    }
+
+    .calendar-body {
+        border-radius: 0;
+    }
+
+    .dtc-air-row span.dtc-farebasis {
+        max-width: 230px;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #dtcQuote .dtc-air-row {
+        padding-left: 0;
+    }
+
+        #dtcQuote .dtc-air-row .dtc-flight-info {
+            gap: 7px;
+        }
+
+        #dtcQuote .dtc-air-row .dtc-flight-startdate {
+            width: 104px;
+        }
+
+        #dtcQuote .dtc-air-row .dtc-flight-point {
+            width: 80px;
+        }
+
+        #dtcQuote .dtc-air-row .dtc-flight-date {
+            width: 40px;
+        }
+
+        #dtcQuote .dtc-air-row .dtc-flight-number {
+            width: 100px;
+        }
+
+    .dtc-copy-toast {
+        width: 90%;
+    }
+    .dtc-detail-cart .dtc-flight-air-logo.dtc-cart-flight-logo {
+        width: unset;
+        text-align: start;
+        flex-direction: unset;
+    }
+}
+
+@media (max-width: 400px) {
+    .dtc-air-option .dtc-flight-info .dtc-flight-startdate {
+        margin-left: 7px;
+    }
+
+    .dtc-air-option .dtc-flight-total-time {
+        max-width: 50px;
+        margin: auto;
+    }
+
+    .dtc-air-option .dtc-flight-summ {
+        margin-right: 7px;
+    }
+
+    .dtc-flight-price-content {
+        min-width: unset;
+    }
+
+    .dtc-flight-connector {
+        padding: 0 5px;
+    }
+
+    .dtc-confirm-content {
+        max-height: 300px;
+        overflow: auto;
+    }
+
+    .dtc-air-row span.dtc-farebasis {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 368px) {
+    .dtc-air-option .dtc-flight-summ {
+        margin-right: 10.5px;
+    }
+
+    .dtc-flight-connector {
+        display: none;
+    }
+
+    .dtc-air-option .dtc-flight-info .dtc-flight-startdate {
+        margin-left: auto;
+    }
+
+    .dtc-air-option .dtc-flight-info .dtc-flight-enddate {
+        margin-left: auto;
+    }
+
+    .dtc-flight-price-content {
+        min-width: 90px;
+    }
+
+    .dtc-total-fare b {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .mobile-cart-content {
+        gap: 14px;
+    }
+
+    .mobile-card-action > .dtc-mobile-pax-prev > span {
+        display: none;
+    }
+
+    .mobile-card-action > .dtc-mobile-pax-prev {
+        width: 30%;
+    }
+
+    .mobile-card-action > .dtc-mobile-book {
+        width: 70%;
+    }
+
+    .mobile-card-action {
+        width: unset;
+        flex: 1;
+        margin-top: 7px;
+    }
+
+    .dtc-confirm-content {
+        overflow-y: auto;
+    }
+
+    .dtc-air-row span.dtc-farebasis {
+        max-width: 150px;
+    }
+
+    .dtc-list-fare-option {
+        min-width: 230px;
+        max-height: 250px;
+    }
+}

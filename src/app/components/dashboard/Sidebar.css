@@ -1,0 +1,60 @@
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: white;
+  width: 260px;
+  min-height: 420px;
+  padding: 1rem;
+}
+
+.sidebar h5 {
+  font-weight: 600;
+}
+
+.sidebar .nav-link {
+  color: #333;
+  margin: 0.25rem 0;
+  border-radius: 8px;
+}
+
+.sidebar .nav-link:hover {
+  background: #f2faff;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.reward-card {
+  background: linear-gradient(180deg, #007bff 0%, #4dafff 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.reward-card small {
+  opacity: 0.85;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}

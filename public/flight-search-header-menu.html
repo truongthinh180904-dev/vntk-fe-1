@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Tìm kiếm chuyến bay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    /* Header */
+    .flight-header {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      right: 0;
+      background: rgba(30, 109, 142, 0.2);
+      backdrop-filter: blur(5px);
+      border-radius: 10px 10px 0 0;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      z-index: 10;
+      height:60px;
+    }
+    .flight-header h4 {
+      margin-top: 5px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Cố định form */
+    #dtc-search-form {
+      position: fixed !important;
+      top: 80px; /* cách top 100px */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100% !important;
+      background: white;
+      border-radius: 0 0 8px 8px !important; /* bo tròn 2 góc dưới */
+      padding-top: 100px;
+      z-index: 999 !important; /* luôn ở trên */
+    }
+
+    /* Loại bỏ thanh cuộn của toàn trang */
+    html, body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+@media (max-width: 768px) {
+  #dtcListAirport
+  {
+    z-index: 99999 !important;
+    width: 42vh !important;
+    height: 100vh !important;
+    left:20px !important;
+    top: 250px !important;
+  }
+    #dtc-search-form {
+      top: 90px; /* cách top 100px  */
+      width: 100% !important;
+    }
+    .dtc-search-input
+    {
+      background-color:rgb(255, 255, 255) ;
+    }
+  /* --- Tab style override for mobile itinerary select --- */
+#dtc-itin-mobile {
+  display: flex !important;
+  justify-content: space-between !important; /* cách đều các tab */
+  align-items: center !important;
+  gap: 10px !important;
+  background: #fff !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1) !important;
+  padding: 6px !important;
+}
+
+#dtc-itin-mobile .dtc-form-radio {
+  flex: 1 !important; /* ✅ chia đều chiều ngang cho 2 tab */
+  text-align: center !important;
+  margin: 0 !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+}
+
+#dtc-itin-mobile .dtc-form-radio-input {
+  display: none !important;
+}
+
+/* Label becomes the clickable tab */
+#dtc-itin-mobile .dtc-form-radio-label {
+  display: block !important;
+  width: 100% !important;
+  padding: 10px 0 !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  background: #f1f1f1 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-size: 14px !important;
+}
+
+/* Active tab */
+#dtc-itin-mobile .dtc-form-radio-input:checked + .dtc-form-radio-label {
+  background: #007bff !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.3) !important;
+}
+
+/* Remove separator lines */
+#dtc-itin-mobile .dtc-separate-vertical {
+  display: none !important;
+}
+
+.dtc-date-icon {
+  display: none !important;
+}
+
+
+}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  
+
+<script>
+function showToast(message) {
+    Swal.fire({
+        icon: 'success',
+        title: message,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didClose: () => {
+            // sau khi toast tắt thì chuyển hướng
+            window.location.href = "/";
+        }
+    });
+}
+</script>
+
+  
+  <div id="dtc-plugin" data-flight-url="/tim-kiem-chuyen-bay" data-key="DTC10978"></div>
+  <script src="/js/plugincustom.js" asp-append-version="true"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function addFlightHeader() {
+        const form = document.querySelector("#dtc-search-form");
+        if (form && !form.querySelector(".flight-header")) {
+          const header = document.createElement("div");
+          header.className = "flight-header";
+          header.innerHTML = `
+           <h4>
+            <svg width="30" height="28" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+              <path d="M404 207.9L204.7 104.2C196.7 100.1 187.4 99.4 179 102.5L137.9 117.5C127.6 121.2 124.1 133.9 130.8 142.5L232.3 270.4L132.1 306.8L72 270.2C65.8 266.4 58.2 265.7 51.3 268.1L35 274.1C25.6 277.5 21.6 288.6 26.7 297.2L80.3 389C95.9 415.7 128.4 427.4 157.4 416.8L170.3 412.1L170.3 412.1L568.7 267.1C597.8 256.5 612.7 224.4 602.2 195.3C591.7 166.2 559.5 151.3 530.4 161.8L404 207.9zM64.2 512C46.5 512 32.2 526.3 32.2 544C32.2 561.7 46.5 576 64.2 576L576.2 576C593.9 576 608.2 561.7 608.2 544C608.2 526.3 593.9 512 576.2 512L64.2 512z"/>
+            </svg>
+            Tìm Kiếm Chuyến Bay
+          </h4>
+
+          `;
+          form.prepend(header);
+        }
+      }
+
+      const observer = new MutationObserver(addFlightHeader);
+      observer.observe(document.body, { childList: true, subtree: true });
+      
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+/* --- 1. Import Font Inter cho chuẩn hiện đại --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* --- 2. Background Trắng & Lưới Xanh Lục (4D Clean) --- */
+@keyframes moveGrid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 40px 40px, 40px 40px; }
+}
+
+.blogcategory {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Nền trắng hơi xanh cực nhẹ cho sang */
+  background-color: #f8fafc; 
+  color: #1a202c;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- 3. Tiêu Đề Danh Mục --- */
+.category-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #0e8fb3 !important; /* Xanh lục chủ đạo */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+}
+
+.category-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 5px;
+  background: #0E8FB3;
+  border-radius: 10px;
+}
+
+/* --- 4. Card Style (Modern White Glass) --- */
+.hover-card {
+  position: relative;
+  border-radius: 24px !important;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* Viền mảnh màu xanh lục rất nhẹ */
+  border: 1px solid rgba(25, 135, 84, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-card:hover {
+  transform: translateY(-12px);
+  background: #ffffff !important;
+  border-color: rgba(25, 135, 84, 0.3) !important;
+  /* Đổ bóng tầng màu xanh lục cực mịn */
+  box-shadow: 0 20px 40px rgba(25, 135, 84, 0.1) !important;
+}
+
+/* --- 5. Image & Zoom --- */
+.image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.post-image {
+  transition: transform 0.7s ease;
+}
+
+.hover-card:hover .post-image {
+  transform: scale(1.1);
+}
+
+/* --- 6. Typography (Xanh & Xám Dark) --- */
+.card-body {
+  padding: 1.75rem !important;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #28683e !important;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+
+
+.post-excerpt {
+  color: #282829 !important;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.post-meta {
+  border-top: 1px solid #f1f5f9 !important;
+  padding-top: 1.2rem;
+  margin-top: auto;
+  color: #94a3b8 !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* --- 7. Hiệu ứng máy bay bay nhẹ --- */
+@keyframes planeFloat {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(5px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+.airplane-icon {
+  color: #0E8FB3;
+  animation: planeFloat 3s ease-in-out infinite;
+}
+
+/* --- 8. Utilities --- */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* --- 4. Card Style (Glassmorphism) --- */
+.hover-card {
+  position: relative;
+  border-radius: 5px !important; /* Bo góc cực đại cho hiện đại */
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hover-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(25, 93, 135, 0.5) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(25, 135, 84, 0.2) !important;
+}
+
+/* Hiệu ứng tia sáng quét ngang khi hover */
+.hover-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.hover-card:hover::before {
+  left: 100%;
+}
+
+/* --- 5. Image Wrapper & Zoom --- */
+.image-wrapper {
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-image {
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.hover-card:hover .post-image {
+  transform: scale(1.15);
+}
+
+/* --- 6. Typography (Chỉnh lại màu cho nền tối) --- */
+.card-body {
+  padding: 1.5rem !important;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.hover-card:hover .post-title {
+  color: #2f8bb3 !important; /* Xanh lá sáng hơn khi hover */
+}
+
+
+.post-meta {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-top: 1rem;
+  margin-top: auto;
+  color: #718096 !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* --- 7. Loading & Utilities --- */
+.loading-text {
+  text-align: center;
+  color: #0E8FB3;
+  font-size: 1.2rem;
+  padding: 100px 0;
+  text-shadow: 0 0 10px rgba(25, 135, 84, 0.3);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive tinh chỉnh */
+@media (max-width: 768px) {
+  .category-title {
+    font-size: 22px !important;
+  }
+  .hover-card:hover {
+    transform: translateY(-5px); /* Trên mobile thì giảm độ bay */
+  }
+}

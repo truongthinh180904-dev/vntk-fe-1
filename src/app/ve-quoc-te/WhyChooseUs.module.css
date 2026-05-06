@@ -1,0 +1,72 @@
+/* .sectionBg {
+  background-color: #f7f9ff;
+  overflow: hidden;
+} */
+
+.titleBlue {
+  color: #0d6efd;
+}
+
+.titleDark {
+  color: #111;
+  position: relative;
+}
+
+.underline {
+  width: 100%;
+  height: 3px;
+  background-color: #0d6efd;
+  margin-top: 6px;
+  border-radius: 10px;
+}
+
+/* --- Card chính --- */
+.infoCard {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(13, 110, 253, 0.15);
+}
+
+/* --- Icon bên trái --- */
+.iconBox {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background-color: #e7f0ff;
+  color: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+
+.infoCard:hover .iconBox {
+  background-color: #0d6efd;
+  color: #fff;
+  transform: rotate(-5deg);
+}
+
+/* --- Text phần bên phải --- */
+.infoText h5 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.infoText p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}

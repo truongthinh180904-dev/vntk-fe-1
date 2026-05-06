@@ -1,0 +1,202 @@
+/* Card chứa bảng */
+.ticket-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Header bảng */
+.modern-table thead {
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.modern-table thead th {
+  white-space: nowrap;
+  padding: 14px;
+  font-size: 15px;
+}
+
+/* Hàng bảng */
+.modern-table tbody tr {
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.modern-table tbody tr:hover {
+  background: #f3f7ff;
+}
+
+/* Khi click chọn */
+.row-selected {
+  background: #e4edff !important;
+}
+
+/* Ô trong bảng */
+.modern-table td {
+  padding: 13px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Nút xem vé */
+.btn-view {
+  background: #007bff;
+  border: none;
+  padding: 6px 14px;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: 0.25s;
+}
+
+.btn-view:hover {
+  background: #005fcc;
+}
+
+/* Badge trạng thái */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-left: 6px;
+  display: inline-block;
+}
+
+.status-success {
+  background: #28a745;
+  color: white;
+}
+
+.status-warning {
+  background: #ffc107;
+  color: #333;
+}
+
+.status-default {
+  background: #6c757d;
+  color: white;
+}
+
+/* Animation fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+    
+
+/* .ticket-route-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ticket-route-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+}
+
+.info-green {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+}
+       */
+       /* Ticket Route Card */
+.ticket-route-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ticket-route-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Date Time Section Animation */
+.date-time-section {
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.date-time-section.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.date-time-section.expanded {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+/* Flight Details Section Animation */
+.flight-details-section {
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.flight-details-section.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.flight-details-section.expanded {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 8px;
+  transition-delay: 0.1s;
+}
+
+/* Dotted Line Styles */
+.dotted-line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1px;
+  background: repeating-linear-gradient(90deg, #adb5bd, #adb5bd 2px, transparent 2px, transparent 8px);
+  z-index: 1;
+}
+
+.dotted-line-full {
+  width: 100%;
+}
+
+/* Airline Icon */
+.airline-icon {
+  width: 32px;
+  height: 32px;
+  background-color:rgb(11, 94, 215) ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Info Green Section */
+.info-green {
+  background:#3f8acd !important;
+}
+
+/* Gradient Backgrounds */
+.gradient-fade-left {
+  background: linear-gradient(90deg, #f8f9fa 0%, transparent 100%);
+}
+
+.gradient-fade-right {
+  background: linear-gradient(270deg, #f8f9fa 0%, transparent 100%);
+}
+
+/* Z-index Utilities */
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; }
+.z-3 { z-index: 3; }
+
+/* Smooth transitions for all interactive elements */
+.ticket-route-card * {
+  transition: all 0.3s ease;
+}
