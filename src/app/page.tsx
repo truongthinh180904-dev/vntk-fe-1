@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import HomeClient from "./Home";
 
 // ✅ Ảnh preview chính khi chia sẻ link (Zalo, Facebook, v.v.)
+//demo 
 const previewImage =
   "https://cdn3657.cdn4s7.io.vn/media/gioi-thieu/banner-promotion/banner-promotion-2.webp";
 
